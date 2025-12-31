@@ -1,49 +1,33 @@
 import { motion } from "framer-motion";
-import {
-  Box,
-  Layers,
-  Link2,
-  ShieldCheck,
-  Award,
-  Radio,
-} from "lucide-react";
+import { Sun, Battery, Home, Car } from "lucide-react";
+import dualCoreShield from "@/assets/dual-core-shield.png";
 
 const features = [
   {
-    icon: Box,
-    title: "All-in-One System",
-    description:
-      "Comes with everything you need — hybrid inverter, modular battery, and backup gateway. No extra components required.",
+    icon: Sun,
+    title: "Solar Generation",
+    description: "Harness the sun",
   },
   {
-    icon: Layers,
-    title: "Modular Design",
-    description:
-      "Pair one EP2000 with up to 7 × B700 battery modules to match your energy needs.",
+    icon: Battery,
+    title: "Smart Storage",
+    description: "EP760 & EP2000",
   },
   {
-    icon: Link2,
-    title: "Seamless Integration",
-    description:
-      "Works with your solar/inverter setup via AC, DC, or hybrid coupling.",
+    icon: Home,
+    title: "Home Power",
+    description: "24/7 backup",
   },
   {
-    icon: ShieldCheck,
-    title: "6-Layer Protection",
-    description:
-      "Six-layer system-level protection ensures end-to-end security — from battery cells to structure.",
+    icon: Car,
+    title: "EV Ready",
+    description: "Charge overnight",
   },
   {
-    icon: Award,
-    title: "VDE Certification",
-    description:
-      "Rigorously tested to meet the world's stringent German VDE2510-50 safety standard.",
-  },
-  {
-    icon: Radio,
-    title: "VPP Ready",
-    description:
-      "Compatible with select Australian VPP providers. Contact us to check if your provider is supported.",
+    icon: null,
+    title: "Dual Core Safety Guard",
+    description: "Advanced protection",
+    customIcon: true,
   },
 ];
 
@@ -68,7 +52,7 @@ export const FeaturesGrid = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
@@ -76,15 +60,19 @@ export const FeaturesGrid = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="glass rounded-2xl p-6 hover:bg-card/80 transition-all duration-300 group hover:glow-primary"
+              className="glass rounded-2xl p-6 w-48 text-center hover:bg-card/80 transition-all duration-300 group hover:glow-primary"
             >
-              <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mb-5 group-hover:bg-gradient-primary transition-all duration-300">
-                <feature.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
+              <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mb-4 mx-auto group-hover:bg-gradient-primary transition-all duration-300">
+                {feature.customIcon ? (
+                  <img src={dualCoreShield} alt="Shield" className="w-8 h-8 object-contain" />
+                ) : (
+                  feature.icon && <feature.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
+                )}
               </div>
-              <h3 className="text-lg font-heading font-semibold text-foreground mb-2">
+              <h3 className="text-base font-heading font-semibold text-foreground mb-1">
                 {feature.title}
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground">
                 {feature.description}
               </p>
             </motion.div>
