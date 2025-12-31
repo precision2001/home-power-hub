@@ -2,12 +2,14 @@ import { motion } from "framer-motion";
 import { Home, Zap, Sun, Car } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import energyFlowVideo from "@/assets/energy-flow.mp4";
+import dualCoreShield from "@/assets/dual-core-shield.png";
 
 const features = [
   { icon: Sun, title: "Solar Generation", subtitle: "Harness the sun" },
   { icon: Zap, title: "Smart Storage", subtitle: "EP760 & EP2000" },
   { icon: Home, title: "Home Power", subtitle: "24/7 backup" },
   { icon: Car, title: "EV Ready", subtitle: "Charge overnight" },
+  { icon: null, title: "Dual Core Safety Guard", subtitle: "Advanced protection", customIcon: true },
 ];
 
 export const HeroSection = () => {
@@ -121,7 +123,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl"
+          className="flex flex-wrap justify-center gap-4 mt-16"
         >
           {features.map((feature, index) => (
             <motion.div
@@ -132,7 +134,11 @@ export const HeroSection = () => {
               className="glass rounded-xl p-4 flex items-center gap-3 hover:bg-card/80 transition-colors backdrop-blur-md"
             >
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center shrink-0">
-                <feature.icon className="w-5 h-5 text-accent-foreground" />
+                {feature.customIcon ? (
+                  <img src={dualCoreShield} alt="Shield" className="w-5 h-5 object-contain" />
+                ) : (
+                  feature.icon && <feature.icon className="w-5 h-5 text-accent-foreground" />
+                )}
               </div>
               <div>
                 <p className="text-sm font-semibold text-foreground">{feature.title}</p>
