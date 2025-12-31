@@ -143,21 +143,36 @@ export default {
   					transform: 'translateY(-10px)'
   				}
   			},
-  			shimmer: {
-  				'0%': {
-  					backgroundPosition: '-200% 0'
-  				},
-  				'100%': {
-  					backgroundPosition: '200% 0'
-  				}
-  			}
+			shimmer: {
+				'0%': {
+					backgroundPosition: '-200% 0'
+				},
+				'100%': {
+					backgroundPosition: '200% 0'
+				}
+			},
+			'fire-glow': {
+				'0%, 100%': {
+					boxShadow: '0 0 20px rgba(245,177,0,0.4), 0 0 40px rgba(245,177,0,0.2), inset 0 0 15px rgba(245,177,0,0.15)'
+				},
+				'25%': {
+					boxShadow: '0 0 35px rgba(255,140,0,0.6), 0 0 70px rgba(245,177,0,0.35), inset 0 0 25px rgba(255,140,0,0.25)'
+				},
+				'50%': {
+					boxShadow: '0 0 45px rgba(255,100,0,0.7), 0 0 90px rgba(245,177,0,0.4), inset 0 0 30px rgba(255,100,0,0.3)'
+				},
+				'75%': {
+					boxShadow: '0 0 35px rgba(255,140,0,0.6), 0 0 70px rgba(245,177,0,0.35), inset 0 0 25px rgba(255,140,0,0.25)'
+				}
+			}
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
   			'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
-  			float: 'float 6s ease-in-out infinite',
-  			shimmer: 'shimmer 3s ease-in-out infinite'
+			float: 'float 6s ease-in-out infinite',
+			shimmer: 'shimmer 3s ease-in-out infinite',
+			'fire-glow': 'fire-glow 2s ease-in-out infinite'
   		},
   		boxShadow: {
   			'2xs': 'var(--shadow-2xs)',
