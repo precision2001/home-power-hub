@@ -49,7 +49,7 @@ export const Footer = () => {
           <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-8 lg:mb-0">
             <div className="flex items-center gap-2">
               <img src={easylinkLogo} alt="EasyLink Solar" className="h-8 w-8" />
-              <span className="text-xl font-bold font-heading text-foreground">
+              <span className="text-lg font-brand text-foreground whitespace-nowrap">
                 EASYLINK SOLAR
               </span>
             </div>
