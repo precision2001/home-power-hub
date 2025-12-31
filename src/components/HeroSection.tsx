@@ -126,7 +126,11 @@ export const HeroSection = () => {
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-6 leading-tight max-w-md">
               <span className="whitespace-nowrap">{slide.headline}</span><br />
-              <span className={currentSlide === 0 ? "text-gradient" : "text-accent"}>{slide.highlight}</span><br />
+              {currentSlide === 0 ? (
+                <><span className="text-accent">Premium </span><span className="text-gradient">BLUETTI</span></>
+              ) : (
+                <span className="text-accent">{slide.highlight}</span>
+              )}<br />
               {slide.subline}
             </h1>
 
