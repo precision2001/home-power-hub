@@ -44,7 +44,7 @@ export const Header = () => {
             >
               <Link to="/" className="flex items-center gap-3">
                 <img src={easylinkLogo} alt="EasyLink Solar" className="h-10 w-10" />
-                <span className="text-xl font-brand text-foreground whitespace-nowrap">EASYLINK SOLAR</span>
+                <span className="text-xl font-brand font-bold text-foreground whitespace-nowrap">EASYLINK SOLAR</span>
               </Link>
             </motion.div>
 
