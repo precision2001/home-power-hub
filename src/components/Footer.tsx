@@ -57,7 +57,7 @@ export const Footer = () => {
               Your Local Solar Energy Partner
             </p>
             <p className="text-xs text-muted-foreground mt-2">
-              Authorised <span className="font-bold text-gradient">BLUETTI</span> Dealer
+              Authorised <span className="font-bold text-gradient">BLUETTI</span> Distributor
             </p>
           </div>
 
