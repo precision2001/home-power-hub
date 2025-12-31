@@ -1,17 +1,26 @@
 import { motion } from "framer-motion";
-import { Menu, X, ShoppingCart, Search, User } from "lucide-react";
+import { Menu, X, ShoppingCart, Search, User, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+
+const batteryItems = [
+  { label: "BLUETTI EP760", href: "/ep760" },
+  { label: "BLUETTI EP2000 Three Phase", href: "/ep2000" },
+  { label: "Portable Power Stations", href: "/portable-power" },
+];
 
 const navItems = [
-  { label: "Overview", href: "#overview" },
-  { label: "Specs", href: "#specs" },
-  { label: "Features", href: "#features" },
-  { label: "Support", href: "#support" },
+  { label: "Customers", href: "/customers" },
+  { label: "Installers", href: "/installers" },
+  { label: "Blog", href: "/blog" },
+  { label: "About Us", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isBatteryOpen, setIsBatteryOpen] = useState(false);
 
   return (
     <>
@@ -32,22 +41,47 @@ export const Header = () => {
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center gap-2"
             >
-              <span className="text-2xl font-bold font-heading text-gradient">BLUETTI</span>
-              <span className="text-xs text-muted-foreground uppercase tracking-wider hidden sm:block">
-                Technology Pioneer<br />in Clean Energy
-              </span>
+              <Link to="/" className="flex items-center gap-2">
+                <span className="text-2xl font-bold font-heading text-gradient">BLUETTI</span>
+                <span className="text-xs text-muted-foreground uppercase tracking-wider hidden sm:block">
+                  Technology Pioneer<br />in Clean Energy
+                </span>
+              </Link>
             </motion.div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-6">
+              {/* Battery Dropdown */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setIsBatteryOpen(true)}
+                onMouseLeave={() => setIsBatteryOpen(false)}
+              >
+                <button className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                  Battery <ChevronDown className="w-4 h-4" />
+                </button>
+                {isBatteryOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-64 glass rounded-xl p-2 shadow-xl">
+                    {batteryItems.map((item) => (
+                      <Link
+                        key={item.label}
+                        to={item.href}
+                        className="block px-4 py-3 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-accent/10 transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  to={item.href}
                   className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </nav>
 
@@ -62,8 +96,8 @@ export const Header = () => {
               <Button variant="ghost" size="icon" className="hidden md:flex">
                 <ShoppingCart className="h-5 w-5" />
               </Button>
-              <Button variant="heroOutline" size="sm" className="hidden sm:flex">
-                Contact Us
+              <Button variant="heroOutline" size="sm" className="hidden sm:flex" asChild>
+                <Link to="/contact">Contact Us</Link>
               </Button>
               <Button variant="hero" size="sm">
                 Buy Now
@@ -71,7 +105,7 @@ export const Header = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden"
+                className="lg:hidden"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -86,43 +120,35 @@ export const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-border"
+            className="lg:hidden border-t border-border"
           >
-            <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
-              {navItems.map((item) => (
-                <a
+            <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
+              <p className="text-xs text-muted-foreground uppercase tracking-wider px-2 pt-2">Battery</p>
+              {batteryItems.map((item) => (
+                <Link
                   key={item.label}
-                  href={item.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  to={item.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-2 py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
+              ))}
+              <div className="border-t border-border my-2" />
+              {navItems.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-2 py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
               ))}
             </nav>
           </motion.div>
         )}
       </header>
-
-      {/* Product Sub-header */}
-      <div className="sticky top-16 z-40 glass border-b border-border">
-        <div className="container mx-auto px-4">
-          <div className="flex h-12 items-center justify-between">
-            <span className="font-heading font-semibold text-foreground">EP2000 Home ESS</span>
-            <div className="hidden md:flex items-center gap-6">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   );
 };
