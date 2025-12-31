@@ -95,14 +95,16 @@ export const Header = () => {
               <Button variant="ghost" size="icon" className="hidden md:flex">
                 <ShoppingCart className="h-5 w-5" />
               </Button>
-              <Button variant="heroOutline" size="sm" className="hidden sm:flex" asChild>
-                <Link to="/contact">Contact Us</Link>
-              </Button>
               <div className="flex flex-col items-end gap-0.5">
-                <Button variant="hero" size="sm">
-                  Buy Now
-                </Button>
-                <span className="text-[10px] text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <Button variant="heroOutline" size="sm" className="hidden sm:flex" asChild>
+                    <Link to="/contact">Contact Us</Link>
+                  </Button>
+                  <Button variant="hero" size="sm">
+                    Buy Now
+                  </Button>
+                </div>
+                <span className="text-[10px] text-muted-foreground hidden sm:block">
                   Powered by <span className="font-bold text-gradient">BLUETTI</span>
                 </span>
               </div>
