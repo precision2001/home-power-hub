@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import easylinkLogo from "@/assets/easylink-logo.png";
 
 const footerLinks = {
   Products: ["EP2000", "AC500", "AC300", "Solar Panels", "Accessories"],
@@ -27,8 +28,7 @@ export const Footer = () => {
               Ready to Take Control of Your Energy?
             </h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              Join thousands of homeowners already saving with BLUETTI. Lock in
-              your exclusive offer today.
+              Join thousands of homeowners already saving with EasyLink Solar and BLUETTI products.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="glow" size="xl">
@@ -47,11 +47,17 @@ export const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-8 lg:mb-0">
-            <span className="text-2xl font-bold font-heading text-gradient">
-              BLUETTI
-            </span>
+            <div className="flex items-center gap-2">
+              <img src={easylinkLogo} alt="EasyLink Solar" className="h-8 w-8" />
+              <span className="text-xl font-bold font-heading text-foreground">
+                EASYLINK SOLAR
+              </span>
+            </div>
             <p className="text-sm text-muted-foreground mt-2">
-              Technology Pioneer in Clean Energy
+              Your Local Solar Energy Partner
+            </p>
+            <p className="text-xs text-muted-foreground mt-2">
+              Authorised <span className="font-bold text-gradient">BLUETTI</span> Dealer
             </p>
           </div>
 
@@ -82,7 +88,7 @@ export const Footer = () => {
       <div className="container mx-auto px-4 py-6 border-t border-border/50">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2025 BLUETTI Power Inc. All rights reserved.
+            © 2025 EasyLink Solar. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a

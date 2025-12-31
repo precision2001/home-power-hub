@@ -3,6 +3,7 @@ import { Menu, X, ShoppingCart, Search, User, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import easylinkLogo from "@/assets/easylink-logo.png";
 
 const batteryItems = [
   { label: "BLUETTI EP760", href: "/ep760" },
@@ -41,11 +42,9 @@ export const Header = () => {
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center gap-2"
             >
-              <Link to="/" className="flex items-center gap-2">
-                <span className="text-2xl font-bold font-heading text-gradient">BLUETTI</span>
-                <span className="text-xs text-muted-foreground uppercase tracking-wider hidden sm:block">
-                  Technology Pioneer<br />in Clean Energy
-                </span>
+              <Link to="/" className="flex items-center gap-3">
+                <img src={easylinkLogo} alt="EasyLink Solar" className="h-10 w-10" />
+                <span className="text-xl font-bold font-heading text-foreground">EASYLINK SOLAR</span>
               </Link>
             </motion.div>
 
@@ -99,9 +98,14 @@ export const Header = () => {
               <Button variant="heroOutline" size="sm" className="hidden sm:flex" asChild>
                 <Link to="/contact">Contact Us</Link>
               </Button>
-              <Button variant="hero" size="sm">
-                Buy Now
-              </Button>
+              <div className="flex flex-col items-end gap-0.5">
+                <Button variant="hero" size="sm">
+                  Buy Now
+                </Button>
+                <span className="text-[10px] text-muted-foreground">
+                  Powered by <span className="font-bold text-gradient">BLUETTI</span>
+                </span>
+              </div>
               <Button
                 variant="ghost"
                 size="icon"
