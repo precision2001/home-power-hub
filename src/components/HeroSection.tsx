@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Home, Zap, Sun, Car } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { EnergyFlowAnimation } from "@/components/EnergyFlowAnimation";
+import energyFlowVideo from "@/assets/energy-flow.mp4";
 
 const features = [
   { icon: Sun, title: "Solar Generation", subtitle: "Harness the sun" },
@@ -112,11 +112,19 @@ export const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden bg-card/50 backdrop-blur-sm border border-border/50 p-4">
-              <EnergyFlowAnimation />
+            <div className="relative rounded-2xl overflow-hidden bg-card/50 backdrop-blur-sm border border-border/50">
+              <video
+                src={energyFlowVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-auto rounded-2xl"
+              />
             </div>
           </motion.div>
         </div>
+
 
         {/* Bottom Feature Strip */}
         <motion.div
