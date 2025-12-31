@@ -52,10 +52,12 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground mb-6 leading-tight"
+            className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-6 leading-tight max-w-md"
           >
-            Power Your Home with{" "}
-            <span className="text-accent">Premium BLUETTI</span>{" "}
+            Power Your Home
+            <br />
+            with <span className="text-accent">Premium BLUETTI</span>
+            <br />
             Energy Storage
           </motion.h1>
 
