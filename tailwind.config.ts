@@ -19,8 +19,8 @@ export default {
 				'sans-serif'
 			],
 			brand: [
-				'Fugaz One',
-				'cursive'
+				'Source Sans 3',
+				'sans-serif'
 			],
 			body: [
 				'DM Sans',
