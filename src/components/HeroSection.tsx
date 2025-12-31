@@ -54,9 +54,9 @@ export const HeroSection = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-6 leading-tight max-w-md"
           >
-            Power Your Home
+            Power Your Home with
             <br />
-            with <span className="text-accent">Premium BLUETTI</span>
+            <span className="text-accent">Premium BLUETTI</span>
             <br />
             Energy Storage
           </motion.h1>
@@ -66,7 +66,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-lg md:text-xl text-foreground/90 mb-4"
+            className="text-lg md:text-xl text-foreground/90 mb-4 max-w-sm"
           >
             Professional installation by EasyLink Solar's certified network
           </motion.p>
@@ -76,7 +76,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-base text-foreground/70 mb-8 max-w-lg"
+            className="text-base text-foreground/70 mb-8 max-w-sm"
           >
             Watch how our EP760 and EP2000 systems capture solar energy during the day 
             and power your home through the night — all while keeping your EV charged.
