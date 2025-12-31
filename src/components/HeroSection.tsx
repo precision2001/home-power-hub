@@ -112,7 +112,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/40 backdrop-blur-sm mb-6">
               <Sun className="w-4 h-4 text-white" />
               <span className="text-sm font-medium text-white">{slide.badge}</span>
             </div>
