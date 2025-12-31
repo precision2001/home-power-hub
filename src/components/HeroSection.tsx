@@ -1,7 +1,10 @@
-import { motion } from "framer-motion";
-import { Home, Zap, Sun, Car } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Home, Zap, Sun, Car, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 import energyFlowVideo from "@/assets/energy-flow.mp4";
+import heroInstallation from "@/assets/hero-installation.jpg";
+import heroDeals from "@/assets/hero-deals.jpg";
 import dualCoreShield from "@/assets/dual-core-shield.png";
 
 const features = [
@@ -12,113 +15,136 @@ const features = [
   { icon: null, title: "Dual Core Safety Guard", subtitle: "Advanced protection", customIcon: true },
 ];
 
+const slides = [
+  {
+    type: "video",
+    src: energyFlowVideo,
+    badge: "Australia's Trusted Solar Partner",
+    headline: "Power Your Home with",
+    highlight: "Premium BLUETTI",
+    subline: "Energy Storage",
+    description: "Professional installation by EasyLink Solar's certified network",
+  },
+  {
+    type: "image",
+    src: heroInstallation,
+    badge: "Professional Installation",
+    headline: "Expert Solar",
+    highlight: "Installation",
+    subline: "Services",
+    description: "Certified installers delivering quality workmanship across Australia",
+  },
+  {
+    type: "image",
+    src: heroDeals,
+    badge: "Limited Time Offer",
+    headline: "Unbeatable",
+    highlight: "Best Deals",
+    subline: "on Solar",
+    description: "Save thousands with our exclusive summer promotions and rebates",
+  },
+];
+
 export const HeroSection = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+
+  const slide = slides[currentSlide];
+
   return (
     <section id="overview" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Fullscreen Video Background */}
-      <div className="absolute inset-0">
-        <video
-          src={energyFlowVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        />
-        {/* Gradient overlays for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent" />
+      {/* Background */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentSlide}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="absolute inset-0"
+        >
+          {slide.type === "video" ? (
+            <video src={slide.src} autoPlay loop muted playsInline className="w-full h-full object-cover" />
+          ) : (
+            <img src={slide.src} alt="" className="w-full h-full object-cover" />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent" />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Navigation Arrows */}
+      <button onClick={prevSlide} className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full glass hover:bg-card/80 transition-colors">
+        <ChevronLeft className="w-6 h-6 text-foreground" />
+      </button>
+      <button onClick={nextSlide} className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full glass hover:bg-card/80 transition-colors">
+        <ChevronRight className="w-6 h-6 text-foreground" />
+      </button>
+
+      {/* Dots */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrentSlide(i)}
+            className={`w-3 h-3 rounded-full transition-colors ${i === currentSlide ? "bg-accent" : "bg-foreground/30"}`}
+          />
+        ))}
       </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 py-12">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-3xl"
-        >
-          {/* Badge */}
+        <AnimatePresence mode="wait">
           <motion.div
+            key={currentSlide}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 backdrop-blur-sm mb-6"
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-3xl"
           >
-            <Sun className="w-4 h-4 text-accent" />
-            <span className="text-sm font-medium text-accent">Australia's Trusted Solar Partner</span>
-          </motion.div>
-
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-6 leading-tight max-w-md"
-          >
-            Power Your Home with
-            <br />
-            <span className="text-accent">Premium BLUETTI</span>
-            <br />
-            Energy Storage
-          </motion.h1>
-
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-lg md:text-xl text-foreground/90 mb-4 max-w-sm"
-          >
-            Professional installation by EasyLink Solar's certified network
-          </motion.p>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-base text-foreground/70 mb-8 max-w-sm"
-          >
-            Watch how our EP760 and EP2000 systems capture solar energy during the day 
-            and power your home through the night — all while keeping your EV charged.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 mb-8"
-          >
-            <Button variant="glow" size="xl">
-              Get a Free Quote
-            </Button>
-            <Button variant="heroOutline" size="xl">
-              Explore Products
-            </Button>
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            className="flex items-center gap-6 text-sm text-foreground/80"
-          >
-            <div className="flex items-center gap-2">
-              <span className="font-bold text-foreground">11,000+</span>
-              <span>quotes created</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 backdrop-blur-sm mb-6">
+              <Sun className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-accent">{slide.badge}</span>
             </div>
-            <div className="w-px h-4 bg-foreground/30" />
-            <div className="flex items-center gap-2">
-              <span className="font-bold text-foreground">500+</span>
-              <span>certified installers</span>
+
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-6 leading-tight max-w-md">
+              {slide.headline}<br />
+              <span className="text-accent">{slide.highlight}</span><br />
+              {slide.subline}
+            </h1>
+
+            <p className="text-lg md:text-xl text-foreground/90 mb-8 max-w-sm">{slide.description}</p>
+
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <Button variant="glow" size="xl">Get a Free Quote</Button>
+              <Button variant="heroOutline" size="xl">Explore Products</Button>
+            </div>
+
+            <div className="flex items-center gap-6 text-sm text-foreground/80">
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-foreground">11,000+</span>
+                <span>quotes created</span>
+              </div>
+              <div className="w-px h-4 bg-foreground/30" />
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-foreground">500+</span>
+                <span>certified installers</span>
+              </div>
             </div>
           </motion.div>
-        </motion.div>
+        </AnimatePresence>
 
-        {/* Bottom Feature Strip */}
+        {/* Feature Strip */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
