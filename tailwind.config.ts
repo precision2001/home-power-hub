@@ -13,15 +13,19 @@ export default {
   		}
   	},
   	extend: {
-  		fontFamily: {
-  			heading: [
-  				'Outfit',
-  				'sans-serif'
-  			],
-  			body: [
-  				'DM Sans',
-  				'sans-serif'
-  			],
+		fontFamily: {
+			heading: [
+				'Outfit',
+				'sans-serif'
+			],
+			brand: [
+				'Fugaz One',
+				'cursive'
+			],
+			body: [
+				'DM Sans',
+				'sans-serif'
+			],
   			sans: [
   				'Inter',
   				'ui-sans-serif',
