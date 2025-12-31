@@ -112,7 +112,13 @@ export const HeroSection = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/30 border border-accent/50 backdrop-blur-sm mb-6 animate-fire-glow">
+            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-sm mb-6 ${
+              currentSlide === 0 
+                ? 'bg-blue-500/20 border border-blue-400/40 animate-fire-glow-blue' 
+                : currentSlide === 1 
+                  ? 'bg-white/20 border border-white/40 animate-fire-glow-white'
+                  : 'bg-accent/25 border border-accent/40 shadow-[0_0_20px_rgba(245,177,0,0.3),0_0_40px_rgba(245,177,0,0.15),inset_0_0_12px_rgba(245,177,0,0.1)]'
+            }`}>
               <Sun className="w-4 h-4 text-white" />
               <span className="text-sm font-medium text-white">{slide.badge}</span>
             </div>
