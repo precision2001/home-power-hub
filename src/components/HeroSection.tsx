@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import energyFlowVideo from "@/assets/energy-flow.mp4";
 import heroInstallation from "@/assets/hero-installation.jpg";
-import heroDeals from "@/assets/hero-deals.png";
+import heroFamilySolar from "@/assets/hero-family-solar.jpg";
 import dualCoreShield from "@/assets/dual-core-shield.png";
 
 const features = [
@@ -38,8 +38,8 @@ const slides = [
   },
   {
     type: "image",
-    src: heroDeals,
-    objectPosition: "object-right object-top sm:object-center",
+    src: heroFamilySolar,
+    objectPosition: "object-[center_30%] sm:object-center",
     badge: "Limited Time Offer",
     headline: "Unbeatable",
     highlight: "Best Deals",
