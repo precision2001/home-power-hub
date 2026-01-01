@@ -1,11 +1,10 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, Zap, Sun, Car, ChevronLeft, ChevronRight } from "lucide-react";
+import { Home, Zap, Sun, Car, ChevronLeft, ChevronRight, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import energyFlowVideo from "@/assets/energy-flow.mp4";
 import heroInstallation from "@/assets/hero-installation.jpg";
 import heroFamilySolar from "@/assets/hero-family-solar.jpg";
-import dualCoreShield from "@/assets/dual-core-shield.png";
 
 const features = [
   { icon: Sun, title: "Solar Generation", subtitle: "Harness the sun" },
@@ -184,13 +183,13 @@ export const HeroSection = () => {
               transition={{ delay: 1.1 + index * 0.1, duration: 0.4 }}
               className={`glass rounded-xl p-3 sm:p-4 flex items-center gap-2 sm:gap-3 hover:bg-card/80 transition-colors backdrop-blur-md ${
                 index === features.length - 1 && features.length % 2 !== 0
-                  ? "col-span-2 sm:col-span-1"
+                  ? "col-span-2 sm:col-span-1 justify-self-center w-full max-w-xs"
                   : ""
               }`}
             >
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center shrink-0">
                 {feature.customIcon ? (
-                  <img src={dualCoreShield} alt="Shield" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
+                  <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-accent-foreground" />
                 ) : (
                   feature.icon && <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 text-accent-foreground" />
                 )}
