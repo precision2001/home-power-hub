@@ -78,7 +78,7 @@ export const UseCaseSection = () => {
                 onClick={() => setActiveCase(useCase)}
                 className={`glass rounded-lg sm:rounded-xl p-3 sm:p-4 cursor-pointer transition-all duration-300 flex items-center gap-3 sm:gap-4 ${
                   activeCase.id === useCase.id
-                    ? "border-primary bg-primary/5 glow-primary"
+                    ? "border-primary bg-white glow-primary"
                     : "hover:border-primary/30"
                 }`}
               >
