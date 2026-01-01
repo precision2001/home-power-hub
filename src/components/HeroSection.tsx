@@ -62,7 +62,7 @@ export const HeroSection = () => {
   const slide = slides[currentSlide];
 
   return (
-    <section id="overview" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="overview" className="relative min-h-[100svh] flex items-center overflow-hidden pt-16 sm:pt-0">
       {/* Background */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -79,31 +79,31 @@ export const HeroSection = () => {
             <img src={slide.src} alt="" className="w-full h-full object-cover" />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/80 sm:from-background/60 via-background/40 sm:via-transparent to-transparent" />
         </motion.div>
       </AnimatePresence>
 
       {/* Navigation Arrows */}
-      <button onClick={prevSlide} className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full glass hover:bg-card/80 transition-colors">
-        <ChevronLeft className="w-6 h-6 text-foreground" />
+      <button onClick={prevSlide} className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 p-1.5 sm:p-2 rounded-full glass hover:bg-card/80 transition-colors">
+        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
       </button>
-      <button onClick={nextSlide} className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full glass hover:bg-card/80 transition-colors">
-        <ChevronRight className="w-6 h-6 text-foreground" />
+      <button onClick={nextSlide} className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 p-1.5 sm:p-2 rounded-full glass hover:bg-card/80 transition-colors">
+        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
       </button>
 
       {/* Dots */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrentSlide(i)}
-            className={`w-3 h-3 rounded-full transition-colors ${i === currentSlide ? "bg-accent" : "bg-foreground/30"}`}
+            className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-colors ${i === currentSlide ? "bg-accent" : "bg-foreground/30"}`}
           />
         ))}
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-10 py-12">
+      <div className="container mx-auto px-4 relative z-10 py-8 sm:py-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -113,18 +113,18 @@ export const HeroSection = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl"
           >
-            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-sm mb-6 ${
+            <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-sm mb-4 sm:mb-6 ${
               currentSlide === 0 
                 ? 'bg-blue-500/20 border border-blue-400/40 animate-fire-glow-blue' 
                 : currentSlide === 1 
                   ? 'bg-white/20 border border-white/40 animate-fire-glow-white'
                   : 'bg-accent/25 border border-accent/40 shadow-[0_0_20px_rgba(245,177,0,0.3),0_0_40px_rgba(245,177,0,0.15),inset_0_0_12px_rgba(245,177,0,0.1)]'
             }`}>
-              <Sun className="w-4 h-4 text-white" />
-              <span className="text-sm font-medium text-white">{slide.badge}</span>
+              <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
+              <span className="text-xs sm:text-sm font-medium text-white">{slide.badge}</span>
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-6 leading-tight max-w-md">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4 sm:mb-6 leading-tight max-w-md">
               <span className="whitespace-nowrap">{slide.headline}</span><br />
               {currentSlide === 0 ? (
                 <><span className="text-accent">Premium </span><span className="text-gradient">BLUETTI</span></>
@@ -134,20 +134,20 @@ export const HeroSection = () => {
               {slide.subline}
             </h1>
 
-            <p className="text-lg md:text-xl text-foreground/90 mb-8 max-w-sm">{slide.description}</p>
+            <p className="text-base sm:text-lg md:text-xl text-foreground/90 mb-6 sm:mb-8 max-w-sm">{slide.description}</p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button variant="glow" size="xl">Get a Free Quote</Button>
-              <Button variant="heroOutline" size="xl">Explore Products</Button>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
+              <Button variant="glow" size="lg" className="sm:size-xl">Get a Free Quote</Button>
+              <Button variant="heroOutline" size="lg" className="sm:size-xl">Explore Products</Button>
             </div>
 
-            <div className="flex items-center gap-6 text-sm text-foreground/80">
-              <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-xs sm:text-sm text-foreground/80">
+              <div className="flex items-center gap-1.5 sm:gap-2">
                 <span className="font-bold text-foreground">11,000+</span>
                 <span>quotes created</span>
               </div>
-              <div className="w-px h-4 bg-foreground/30" />
-              <div className="flex items-center gap-2">
+              <div className="w-px h-3 sm:h-4 bg-foreground/30" />
+              <div className="flex items-center gap-1.5 sm:gap-2">
                 <span className="font-bold text-foreground">500+</span>
                 <span>certified installers</span>
               </div>
@@ -160,7 +160,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.6 }}
-          className="flex justify-center gap-4 mt-16"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mt-8 sm:mt-12 lg:mt-16"
         >
           {features.map((feature, index) => (
             <motion.div
@@ -168,18 +168,18 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1 + index * 0.1, duration: 0.4 }}
-              className="glass rounded-xl p-4 flex items-center gap-3 hover:bg-card/80 transition-colors backdrop-blur-md"
+              className="glass rounded-xl p-3 sm:p-4 flex items-center gap-2 sm:gap-3 hover:bg-card/80 transition-colors backdrop-blur-md"
             >
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center shrink-0">
                 {feature.customIcon ? (
-                  <img src={dualCoreShield} alt="Shield" className="w-5 h-5 object-contain" />
+                  <img src={dualCoreShield} alt="Shield" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
                 ) : (
-                  feature.icon && <feature.icon className="w-5 h-5 text-accent-foreground" />
+                  feature.icon && <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 text-accent-foreground" />
                 )}
               </div>
-              <div>
-                <p className="text-sm font-semibold text-foreground">{feature.title}</p>
-                <p className="text-xs text-foreground/60">{feature.subtitle}</p>
+              <div className="min-w-0">
+                <p className="text-xs sm:text-sm font-semibold text-foreground truncate">{feature.title}</p>
+                <p className="text-[10px] sm:text-xs text-foreground/60 truncate">{feature.subtitle}</p>
               </div>
             </motion.div>
           ))}

@@ -26,23 +26,23 @@ const steps = [
 
 export const ProcessSteps = () => {
   return (
-    <section className="py-20 bg-secondary/30">
+    <section className="py-12 sm:py-16 lg:py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-3 sm:mb-4">
             How It Works
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base sm:text-lg text-muted-foreground">
             Simple 4-step process to energy independence
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {steps.map((item, index) => (
             <motion.div
               key={item.step}
@@ -57,14 +57,14 @@ export const ProcessSteps = () => {
                 <div className="hidden lg:block absolute top-12 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-primary/50 to-transparent" />
               )}
 
-              <div className="glass rounded-2xl p-6 h-full hover:bg-card/80 transition-all duration-300 group-hover:glow-primary">
-                <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <item.icon className="w-6 h-6 text-primary-foreground" />
+              <div className="glass rounded-xl sm:rounded-2xl p-4 sm:p-6 h-full hover:bg-card/80 transition-all duration-300 group-hover:glow-primary">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl bg-gradient-primary flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
+                  <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
                 </div>
-                <span className="text-xs text-primary font-semibold uppercase tracking-wider">
+                <span className="text-[10px] sm:text-xs text-primary font-semibold uppercase tracking-wider">
                   {item.step}
                 </span>
-                <p className="text-foreground font-medium mt-2">{item.title}</p>
+                <p className="text-sm sm:text-base text-foreground font-medium mt-2">{item.title}</p>
               </div>
             </motion.div>
           ))}
