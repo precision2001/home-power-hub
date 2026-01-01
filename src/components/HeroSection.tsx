@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import energyFlowVideo from "@/assets/energy-flow.mp4";
 import heroInstallation from "@/assets/hero-installation.jpg";
-import heroDeals from "@/assets/hero-deals.jpg";
+import heroDeals from "@/assets/hero-deals.png";
 import dualCoreShield from "@/assets/dual-core-shield.png";
 
 const features = [
