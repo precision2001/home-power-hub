@@ -86,8 +86,8 @@ const PortablePower = () => {
                   transition={{ delay: index * 0.1 }}
                   className="text-center"
                 >
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center mx-auto mb-4">
-                    <useCase.icon className="w-8 h-8 text-accent-foreground" />
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-r from-[#00c8e0] to-[#1e88e5] flex items-center justify-center mx-auto mb-4">
+                    <useCase.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="font-semibold text-foreground mb-1">{useCase.title}</h3>
                   <p className="text-sm text-muted-foreground">{useCase.description}</p>

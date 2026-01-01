@@ -97,8 +97,8 @@ const EP760 = () => {
                   transition={{ delay: index * 0.1 }}
                   className="glass rounded-xl p-6 text-center hover:bg-card/80 transition-colors"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="w-7 h-7 text-accent-foreground" />
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-[#00c8e0] to-[#1e88e5] flex items-center justify-center mx-auto mb-4">
+                    <feature.icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
                   <p className="text-sm text-muted-foreground">{feature.description}</p>
