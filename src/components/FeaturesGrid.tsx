@@ -1,49 +1,43 @@
 import { motion } from "framer-motion";
 import { Sun, Battery, Home, Car } from "lucide-react";
 import shieldIcon from "@/assets/shield-icon.png";
-
-const features = [
-  {
-    icon: Sun,
-    title: "Solar Generation",
-    description: "Harness the sun",
-  },
-  {
-    icon: Battery,
-    title: "Smart Storage",
-    description: "EP760 & EP2000",
-  },
-  {
-    icon: Home,
-    title: "Home Power",
-    description: "24/7 backup",
-  },
-  {
-    icon: Car,
-    title: "EV Ready",
-    description: "Charge overnight",
-  },
-  {
-    icon: null,
-    title: "Dual Core Safety Guard",
-    description: "Advanced protection",
-    customIcon: true,
-  },
-];
-
+const features = [{
+  icon: Sun,
+  title: "Solar Generation",
+  description: "Harness the sun"
+}, {
+  icon: Battery,
+  title: "Smart Storage",
+  description: "EP760 & EP2000"
+}, {
+  icon: Home,
+  title: "Home Power",
+  description: "24/7 backup"
+}, {
+  icon: Car,
+  title: "EV Ready",
+  description: "Charge overnight"
+}, {
+  icon: null,
+  title: "Dual Core Safety Guard",
+  description: "Advanced protection",
+  customIcon: true
+}];
 export const FeaturesGrid = () => {
-  return (
-    <section id="features" className="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
+  return <section id="features" className="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 via-background to-background" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-8 sm:mb-12 lg:mb-16"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 20
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} viewport={{
+        once: true
+      }} className="text-center mb-8 sm:mb-12 lg:mb-16">
           <p className="text-sm sm:text-base text-primary font-semibold uppercase tracking-wider mb-2">
             Technology Pioneer in Clean Energy
           </p>
@@ -53,25 +47,19 @@ export const FeaturesGrid = () => {
         </motion.div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-6">
-          {features.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className={`glass rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:bg-card/80 transition-all duration-300 group hover:glow-primary ${
-                index === features.length - 1 && features.length % 2 !== 0
-                  ? "col-span-2 sm:col-span-1"
-                  : ""
-              }`}
-            >
+          {features.map((feature, index) => <motion.div key={feature.title} initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          delay: index * 0.1
+        }} className={`glass rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:bg-card/80 transition-all duration-300 group hover:glow-primary ${index === features.length - 1 && features.length % 2 !== 0 ? "col-span-2 sm:col-span-1" : ""}`}>
               <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-lg sm:rounded-xl bg-gradient-to-r from-[#00c8e0] to-[#1e88e5] flex items-center justify-center mb-3 sm:mb-4 mx-auto transition-all duration-300">
-                {feature.customIcon ? (
-                  <img src={shieldIcon} alt="Shield" className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 object-contain brightness-0 invert" />
-                ) : (
-                  feature.icon && <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
-                )}
+                {feature.customIcon ? <img src={shieldIcon} alt="Shield" className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 object-contain brightness-0 invert" /> : feature.icon && <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />}
               </div>
               <h3 className="text-xs sm:text-sm lg:text-base font-heading font-semibold text-foreground mb-1">
                 {feature.title}
@@ -79,10 +67,8 @@ export const FeaturesGrid = () => {
               <p className="text-[10px] sm:text-xs lg:text-sm text-muted-foreground">
                 {feature.description}
               </p>
-            </motion.div>
-          ))}
+            </motion.div>)}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
