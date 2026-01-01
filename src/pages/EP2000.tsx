@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Battery, Zap, Shield, Home, Check, Building2 } from "lucide-react";
+import { Battery, Zap, Shield, Home, Check, Building2, Sun, Clock, Tent } from "lucide-react";
 import batterySystem from "@/assets/battery-system.png";
 
 const features = [
@@ -10,6 +11,29 @@ const features = [
   { icon: Zap, title: "20kW Output", description: "Industrial-grade power output for demanding loads" },
   { icon: Shield, title: "Advanced BMS", description: "Intelligent battery management for optimal performance" },
   { icon: Building2, title: "Commercial Ready", description: "Perfect for businesses and large properties" },
+];
+
+const essFeatures = [
+  { 
+    icon: Sun, 
+    title: "Maximise Solar", 
+    description: "Capture every ray of sunshine. The EP2000 optimizes solar harvesting to maximize your energy independence and reduce reliance on the grid." 
+  },
+  { 
+    icon: Home, 
+    title: "Home Backup", 
+    description: "Keep the lights on during outages. The EP2000 automatically switches to backup mode in less than 20ms — so fast you won't even notice the grid went down." 
+  },
+  { 
+    icon: Clock, 
+    title: "TOU Savings", 
+    description: "Save money by using stored energy during peak rate hours and charging during off-peak times. Smart energy management for maximum savings." 
+  },
+  { 
+    icon: Tent, 
+    title: "Off-Grid Freedom", 
+    description: "Go completely off-grid with confidence. The EP2000 provides reliable power for remote locations and complete energy independence." 
+  },
 ];
 
 const specs = [
@@ -22,6 +46,8 @@ const specs = [
 ];
 
 const EP2000 = () => {
+  const [selectedFeature, setSelectedFeature] = useState(0);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -71,8 +97,79 @@ const EP2000 = () => {
           </div>
         </section>
 
-        {/* Features Grid */}
+        {/* Live Better with EP2000 ESS Section */}
         <section className="py-20 bg-card/50">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+                Live Better with EP2000 ESS
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Discover how the EP2000 transforms your energy experience
+              </p>
+            </motion.div>
+            
+            <div className="grid lg:grid-cols-2 gap-8 items-start">
+              {/* Left Column - Feature List */}
+              <div className="space-y-4">
+                {essFeatures.map((feature, index) => (
+                  <motion.div
+                    key={feature.title}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    onClick={() => setSelectedFeature(index)}
+                    className={`flex items-center gap-4 p-4 rounded-xl cursor-pointer transition-all duration-300 ${
+                      selectedFeature === index
+                        ? "bg-white border-[3px] border-[#00c8e0] shadow-lg"
+                        : "bg-gray-100 border-[3px] border-transparent hover:bg-gray-200"
+                    }`}
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#00c8e0] to-[#1e88e5] flex items-center justify-center shrink-0">
+                      <feature.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <span className={`font-semibold text-lg ${
+                      selectedFeature === index ? "text-foreground" : "text-muted-foreground"
+                    }`}>
+                      {feature.title}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Right Column - Feature Details */}
+              <motion.div
+                key={selectedFeature}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-2xl p-8 shadow-lg border border-border/50"
+              >
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-r from-[#00c8e0] to-[#1e88e5] flex items-center justify-center mb-6">
+                  {(() => {
+                    const IconComponent = essFeatures[selectedFeature].icon;
+                    return <IconComponent className="w-10 h-10 text-white" />;
+                  })()}
+                </div>
+                <h3 className="text-2xl font-heading font-bold text-foreground mb-4">
+                  {essFeatures[selectedFeature].title}
+                </h3>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  {essFeatures[selectedFeature].description}
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Grid */}
+        <section className="py-20">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -97,8 +194,8 @@ const EP2000 = () => {
                   transition={{ delay: index * 0.1 }}
                   className="glass rounded-xl p-6 text-center hover:bg-card/80 transition-colors"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="w-7 h-7 text-accent-foreground" />
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-[#00c8e0] to-[#1e88e5] flex items-center justify-center mx-auto mb-4">
+                    <feature.icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
                   <p className="text-sm text-muted-foreground">{feature.description}</p>
@@ -109,7 +206,7 @@ const EP2000 = () => {
         </section>
 
         {/* Specifications */}
-        <section className="py-20">
+        <section className="py-20 bg-card/50">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
