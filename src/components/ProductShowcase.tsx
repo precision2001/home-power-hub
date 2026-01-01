@@ -28,7 +28,7 @@ const packages = [
     capacity: "51.61 kWh",
     power: "20 kW",
     pv: "40 kWp PV",
-    price: "11,500",
+    price: "9,500",
     popular: false,
   },
 ];
