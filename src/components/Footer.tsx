@@ -11,7 +11,7 @@ const footerLinks = {
 
 export const Footer = () => {
   return (
-    <footer id="support" className="bg-primary/5 border-t border-border">
+    <footer id="support" className="bg-accent/5 border-t border-border">
       {/* CTA Section */}
       <div className="container mx-auto px-4 py-10 sm:py-12 lg:py-16">
         <motion.div
