@@ -190,7 +190,7 @@ export const HeroSection = () => {
             >
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center shrink-0">
                 {feature.customIcon ? (
-                  <img src={dualCoreShield} alt="Shield" className="w-4 h-4 sm:w-5 sm:h-5 object-contain mix-blend-screen" />
+                  <img src={dualCoreShield} alt="Shield" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
                 ) : (
                   feature.icon && <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 text-accent-foreground" />
                 )}
