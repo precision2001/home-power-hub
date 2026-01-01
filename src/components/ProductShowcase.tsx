@@ -10,7 +10,7 @@ const packages = [
     capacity: "29.49 kWh",
     power: "20 kW",
     pv: "40 kWp PV",
-    price: "9,800",
+    price: "7,800",
     popular: false,
   },
   {
@@ -19,7 +19,7 @@ const packages = [
     capacity: "36.86 kWh",
     power: "20 kW",
     pv: "40 kWp PV",
-    price: "10,500",
+    price: "8,500",
     popular: true,
   },
   {
