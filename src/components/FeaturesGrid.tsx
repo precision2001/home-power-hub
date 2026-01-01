@@ -62,11 +62,11 @@ export const FeaturesGrid = () => {
               transition={{ delay: index * 0.1 }}
               className="glass rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:bg-card/80 transition-all duration-300 group hover:glow-primary"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-lg sm:rounded-xl bg-accent/20 flex items-center justify-center mb-3 sm:mb-4 mx-auto group-hover:bg-accent/30 transition-all duration-300">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-lg sm:rounded-xl bg-secondary flex items-center justify-center mb-3 sm:mb-4 mx-auto group-hover:bg-gradient-primary transition-all duration-300">
                 {feature.customIcon ? (
                   <img src={dualCoreShield} alt="Shield" className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 object-contain" />
                 ) : (
-                  feature.icon && <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-accent group-hover:text-accent transition-colors" />
+                  feature.icon && <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-primary group-hover:text-primary-foreground transition-colors" />
                 )}
               </div>
               <h3 className="text-xs sm:text-sm lg:text-base font-heading font-semibold text-foreground mb-1">

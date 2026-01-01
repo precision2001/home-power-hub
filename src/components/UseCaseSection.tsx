@@ -85,15 +85,15 @@ export const UseCaseSection = () => {
                 <div
                   className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center shrink-0 transition-all ${
                     activeCase.id === useCase.id
-                      ? "bg-accent"
-                      : "bg-accent/20"
+                      ? "bg-gradient-primary"
+                      : "bg-secondary"
                   }`}
                 >
                   <useCase.icon
                     className={`w-4 h-4 sm:w-5 sm:h-5 ${
                       activeCase.id === useCase.id
-                        ? "text-accent-foreground"
-                        : "text-accent"
+                        ? "text-primary-foreground"
+                        : "text-muted-foreground"
                     }`}
                   />
                 </div>
@@ -118,8 +118,8 @@ export const UseCaseSection = () => {
             transition={{ duration: 0.4 }}
             className="glass-strong rounded-xl sm:rounded-2xl p-5 sm:p-8"
           >
-            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-accent flex items-center justify-center mb-4 sm:mb-6">
-              <activeCase.icon className="w-6 h-6 sm:w-8 sm:h-8 text-accent-foreground" />
+            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-primary flex items-center justify-center mb-4 sm:mb-6">
+              <activeCase.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary-foreground" />
             </div>
             <h3 className="text-xl sm:text-2xl font-heading font-bold text-foreground mb-3 sm:mb-4">
               {activeCase.title}
