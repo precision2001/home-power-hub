@@ -1,10 +1,11 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, Zap, Sun, Car, ChevronLeft, ChevronRight, ShieldCheck } from "lucide-react";
+import { Home, Zap, Sun, Car, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import energyFlowVideo from "@/assets/energy-flow.mp4";
 import heroInstallation from "@/assets/hero-installation.jpg";
 import heroFamilySolar from "@/assets/hero-family-solar.jpg";
+import shieldIcon from "@/assets/shield-icon.png";
 
 const features = [
   { icon: Sun, title: "Solar Generation", subtitle: "Harness the sun" },
@@ -189,7 +190,7 @@ export const HeroSection = () => {
             >
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center shrink-0">
                 {feature.customIcon ? (
-                  <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-accent-foreground" />
+                  <img src={shieldIcon} alt="Shield" className="w-4 h-4 sm:w-5 sm:h-5 object-contain brightness-0 invert" />
                 ) : (
                   feature.icon && <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 text-accent-foreground" />
                 )}
