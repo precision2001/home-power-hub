@@ -19,6 +19,7 @@ const slides = [
   {
     type: "video",
     src: energyFlowVideo,
+    objectPosition: "object-center",
     badge: "Australia's Trusted Solar Partner",
     headline: "Power Your Home with",
     highlight: "Premium BLUETTI",
@@ -28,6 +29,7 @@ const slides = [
   {
     type: "image",
     src: heroInstallation,
+    objectPosition: "object-[70%_center] sm:object-center",
     badge: "Professional Installation",
     headline: "Expert Solar",
     highlight: "Installation",
@@ -37,6 +39,7 @@ const slides = [
   {
     type: "image",
     src: heroDeals,
+    objectPosition: "object-[60%_center] sm:object-center",
     badge: "Limited Time Offer",
     headline: "Unbeatable",
     highlight: "Best Deals",
@@ -73,13 +76,24 @@ export const HeroSection = () => {
           transition={{ duration: 0.5 }}
           className="absolute inset-0"
         >
-          {slide.type === "video" ? (
-            <video src={slide.src} autoPlay loop muted playsInline className="w-full h-full object-cover" />
+        {slide.type === "video" ? (
+            <video 
+              src={slide.src} 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className={`w-full h-full object-cover ${slide.objectPosition}`} 
+            />
           ) : (
-            <img src={slide.src} alt="" className="w-full h-full object-cover" />
+            <img 
+              src={slide.src} 
+              alt="" 
+              className={`w-full h-full object-cover ${slide.objectPosition}`}
+            />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/80 sm:from-background/60 via-background/40 sm:via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/90 sm:from-background/70 via-background/50 sm:via-background/20 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
