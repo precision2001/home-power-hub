@@ -39,7 +39,7 @@ const slides = [
   {
     type: "image",
     src: heroDeals,
-    objectPosition: "object-[60%_center] sm:object-center",
+    objectPosition: "object-right object-top sm:object-center",
     badge: "Limited Time Offer",
     headline: "Unbeatable",
     highlight: "Best Deals",
