@@ -65,16 +65,16 @@ const CountdownTimer = () => {
   }, []);
 
   return (
-    <div className="flex items-center gap-4">
-      <span className="text-sm text-muted-foreground">Ends</span>
+    <div className="flex items-center gap-2 sm:gap-4">
+      <span className="text-xs sm:text-sm text-muted-foreground">Ends</span>
       {Object.entries(timeLeft).map(([label, value]) => (
         <div key={label} className="text-center">
-          <div className="w-14 h-14 glass-strong rounded-lg flex items-center justify-center">
-            <span className="text-2xl font-bold text-foreground font-heading">
+          <div className="w-10 h-10 sm:w-14 sm:h-14 glass-strong rounded-lg flex items-center justify-center">
+            <span className="text-lg sm:text-2xl font-bold text-foreground font-heading">
               {String(value).padStart(2, "0")}
             </span>
           </div>
-          <span className="text-xs text-muted-foreground capitalize mt-1 block">
+          <span className="text-[10px] sm:text-xs text-muted-foreground capitalize mt-1 block">
             {label}
           </span>
         </div>
@@ -87,42 +87,42 @@ export const ProductShowcase = () => {
   const [selectedPackage, setSelectedPackage] = useState(packages[0]);
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
+      <div className="absolute top-1/2 left-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-primary/5 rounded-full blur-[100px] sm:blur-[150px]" />
 
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-3 sm:mb-4">
             Whole-Home Power + Installation
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base sm:text-lg text-muted-foreground">
             <span className="text-primary font-semibold">300 Systems ONLY!</span> —
             Limited Summer Offer
           </p>
-          <p className="text-sm text-muted-foreground mt-2">
+          <p className="text-xs sm:text-sm text-muted-foreground mt-2">
             205 homeowners claimed this offer
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Product Image */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative order-2 lg:order-1"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent rounded-3xl" />
             <img
               src={batteryImage}
               alt="BLUETTI EP2000 Battery System"
-              className="w-full max-w-md mx-auto animate-float"
+              className="w-full max-w-xs sm:max-w-md mx-auto animate-float"
             />
           </motion.div>
 
@@ -131,40 +131,40 @@ export const ProductShowcase = () => {
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-4 sm:space-y-6 order-1 lg:order-2"
           >
             {/* Package Cards */}
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {packages.map((pkg) => (
                 <div
                   key={pkg.id}
                   onClick={() => setSelectedPackage(pkg)}
-                  className={`relative glass rounded-xl p-5 cursor-pointer transition-all duration-300 ${
+                  className={`relative glass rounded-xl p-4 sm:p-5 cursor-pointer transition-all duration-300 ${
                     selectedPackage.id === pkg.id
                       ? "border-primary glow-primary"
                       : "hover:border-primary/30"
                   }`}
                 >
                   {pkg.popular && (
-                    <span className="absolute -top-3 right-4 bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full">
+                    <span className="absolute -top-2.5 sm:-top-3 right-3 sm:right-4 bg-gradient-primary text-primary-foreground text-[10px] sm:text-xs font-semibold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full">
                       Most Popular
                     </span>
                   )}
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
                     <div>
-                      <h3 className="font-heading font-semibold text-foreground">
+                      <h3 className="font-heading font-semibold text-foreground text-sm sm:text-base">
                         {pkg.name}
                       </h3>
-                      <p className="text-sm text-muted-foreground mt-1">
+                      <p className="text-xs sm:text-sm text-muted-foreground mt-1">
                         {pkg.capacity} | {pkg.power} | {pkg.pv}
                       </p>
                     </div>
-                    <div className="text-right">
-                      <p className="text-2xl font-bold text-gradient font-heading">
+                    <div className="text-left sm:text-right">
+                      <p className="text-xl sm:text-2xl font-bold text-gradient font-heading">
                         A${pkg.price}*
                       </p>
-                      <p className="text-xs text-muted-foreground">+ GST</p>
-                      <p className="text-xs text-primary">Installation Included</p>
+                      <p className="text-[10px] sm:text-xs text-muted-foreground">+ GST</p>
+                      <p className="text-[10px] sm:text-xs text-primary">Installation Included</p>
                     </div>
                   </div>
                 </div>
