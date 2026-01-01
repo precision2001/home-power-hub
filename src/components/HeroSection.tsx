@@ -182,11 +182,15 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1 + index * 0.1, duration: 0.4 }}
-              className="glass rounded-xl p-3 sm:p-4 flex items-center gap-2 sm:gap-3 hover:bg-card/80 transition-colors backdrop-blur-md"
+              className={`glass rounded-xl p-3 sm:p-4 flex items-center gap-2 sm:gap-3 hover:bg-card/80 transition-colors backdrop-blur-md ${
+                index === features.length - 1 && features.length % 2 !== 0
+                  ? "col-span-2 sm:col-span-1"
+                  : ""
+              }`}
             >
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center shrink-0">
                 {feature.customIcon ? (
-                  <img src={dualCoreShield} alt="Shield" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                  <img src={dualCoreShield} alt="Shield" className="w-4 h-4 sm:w-5 sm:h-5 object-contain brightness-0 invert" />
                 ) : (
                   feature.icon && <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 text-accent-foreground" />
                 )}
