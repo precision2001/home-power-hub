@@ -26,7 +26,7 @@ const steps = [
 
 export const ProcessSteps = () => {
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-primary/5">
+    <section className="py-12 sm:py-16 lg:py-20 bg-accent/5">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,8 +58,8 @@ export const ProcessSteps = () => {
               )}
 
               <div className="glass rounded-xl sm:rounded-2xl p-4 sm:p-6 h-full hover:bg-card/80 transition-all duration-300 group-hover:glow-primary">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl bg-gradient-primary flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
-                  <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl bg-accent/20 flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 group-hover:bg-accent/30 transition-all">
+                  <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
                 </div>
                 <span className="text-[10px] sm:text-xs text-primary font-semibold uppercase tracking-wider">
                   {item.step}
