@@ -82,8 +82,16 @@ export const UseCaseSection = () => {
                     : "hover:border-primary/30"
                 }`}
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center shrink-0 bg-gradient-to-r from-[#00c8e0] to-[#1e88e5]">
-                  <useCase.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${
+                  activeCase.id === useCase.id
+                    ? "bg-gradient-to-r from-[#33d4e8] to-[#4a9fe8] shadow-lg"
+                    : "bg-gradient-to-r from-[#00c8e0] to-[#1e88e5]"
+                }`}>
+                  <useCase.icon className={`w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 ${
+                    activeCase.id === useCase.id
+                      ? "text-white drop-shadow-sm"
+                      : "text-white/90"
+                  }`} />
                 </div>
                 <span
                   className={`text-sm sm:text-base font-medium ${
