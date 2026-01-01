@@ -84,7 +84,7 @@ export const PowerSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-4 rounded-xl bg-white shadow-[0_0_0_3px_#efb218,0_0_0_6px_white,0_0_0_9px_#f87171] hover:shadow-[0_0_0_3px_#d4a016,0_0_0_6px_white,0_0_0_9px_#ef4444] hover:scale-[1.02] transition-all duration-300"
+                className="flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-4 rounded-xl bg-white shadow-[0_0_0_3px_#1e90ff] hover:shadow-[0_0_0_3px_#1a7fd1] hover:scale-[1.02] transition-all duration-300"
               >
                 <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full bg-gradient-primary flex items-center justify-center">
                   <appliance.icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-primary-foreground" />
