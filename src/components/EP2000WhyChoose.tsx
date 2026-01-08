@@ -1,36 +1,46 @@
 import { motion } from "framer-motion";
 import { Box, Layers, Link, ShieldCheck, Award, Zap } from "lucide-react";
+import batterySystem from "@/assets/battery-system.png";
+import heroHome from "@/assets/hero-home.jpg";
+import heroFamilySolar from "@/assets/hero-family-solar.jpg";
+import dualCoreShield from "@/assets/dual-core-shield.png";
 
 const whyChooseFeatures = [
   {
     icon: Box,
     title: "All-in-One System",
-    description: "Comes with everything you need — hybrid inverter, modular battery, and backup gateway. No extra components required."
+    description: "Comes with everything you need — hybrid inverter, modular battery, and backup gateway.",
+    image: batterySystem
   },
   {
     icon: Layers,
     title: "Modular Design",
-    description: "Pair one EP2000 with up to 7 x B700 battery modules to match your energy needs."
+    description: "Pair one EP2000 with up to 7 x B700 battery modules to match your energy needs.",
+    image: batterySystem
   },
   {
     icon: Link,
     title: "Seamless Integration",
-    description: "Works with your solar/inverter setup via AC, DC, or hybrid coupling."
+    description: "Works with your solar/inverter setup via AC, DC, or hybrid coupling.",
+    image: heroHome
   },
   {
     icon: ShieldCheck,
     title: "6-Layer Protection",
-    description: "Six-layer system-level protection ensures end-to-end security — from battery cells to structure."
+    description: "Six-layer system-level protection ensures end-to-end security.",
+    image: dualCoreShield
   },
   {
     icon: Award,
     title: "VDE Certification",
-    description: "Rigorously tested to meet the world's stringent German VDE2510-50 safety standard."
+    description: "Rigorously tested to meet the world's stringent German VDE2510-50 safety standard.",
+    image: null // Gradient placeholder
   },
   {
     icon: Zap,
     title: "VPP Ready",
-    description: "Compatible with select Australian VPP providers. Contact us to check if your provider is supported."
+    description: "Compatible with select Australian VPP providers.",
+    image: heroFamilySolar
   }
 ];
 
@@ -57,13 +67,32 @@ export const EP2000WhyChoose = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-[#0f2847] rounded-2xl p-6 border border-[#1e3a5f] hover:border-[#00c8e0]/50 transition-all duration-300 group"
+              className="bg-[#0f2847] rounded-2xl overflow-hidden border border-[#1e3a5f] hover:border-[#00c8e0]/50 transition-all duration-300 group"
             >
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-[#00c8e0] to-[#1e88e5] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <feature.icon className="w-7 h-7 text-white" />
+              {/* Image Area */}
+              <div className="relative h-40 overflow-hidden">
+                {feature.image ? (
+                  <img 
+                    src={feature.image} 
+                    alt={feature.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-[#00c8e0]/30 to-[#1e88e5]/30" />
+                )}
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0f2847] via-transparent to-transparent" />
+                {/* Icon positioned in corner */}
+                <div className="absolute bottom-3 right-3 w-12 h-12 rounded-xl bg-gradient-to-r from-[#00c8e0] to-[#1e88e5] flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <feature.icon className="w-6 h-6 text-white" />
+                </div>
               </div>
-              <h3 className="font-semibold text-white text-lg mb-2">{feature.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
+              
+              {/* Content Area */}
+              <div className="p-5">
+                <h3 className="font-semibold text-white text-lg mb-2">{feature.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
+              </div>
             </motion.div>
           ))}
         </div>

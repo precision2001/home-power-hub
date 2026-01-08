@@ -1,4 +1,8 @@
 import { motion } from "framer-motion";
+import heroHome from "@/assets/hero-home.jpg";
+import batterySystem from "@/assets/battery-system.png";
+import dualCoreShield from "@/assets/dual-core-shield.png";
+import heroInstallation from "@/assets/hero-installation.jpg";
 
 export const EP2000TechPioneer = () => {
   return (
@@ -23,13 +27,18 @@ export const EP2000TechPioneer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="col-span-2 bg-gradient-to-br from-[#0f2847] to-[#1a3a5c] rounded-2xl p-6 md:p-8 border border-[#1e3a5f] relative overflow-hidden group hover:border-[#00c8e0]/50 transition-all duration-300"
+            className="col-span-2 rounded-2xl border border-[#1e3a5f] relative overflow-hidden group hover:border-[#00c8e0]/50 transition-all duration-300 h-48 md:h-56"
+            style={{
+              backgroundImage: `url(${heroHome})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
           >
-            <div className="relative z-10">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/95 via-[#0a1628]/80 to-transparent" />
+            <div className="relative z-10 p-6 md:p-8 h-full flex flex-col justify-end">
               <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">40kWp</p>
               <p className="text-gray-400">Max. Recommended PV Power</p>
             </div>
-            <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-[#00c8e0]/10 rounded-full blur-3xl group-hover:bg-[#00c8e0]/20 transition-colors duration-300" />
           </motion.div>
 
           {/* All-in-One System */}
@@ -38,10 +47,20 @@ export const EP2000TechPioneer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="col-span-2 bg-gradient-to-br from-[#0f2847] to-[#1a3a5c] rounded-2xl p-6 md:p-8 border border-[#1e3a5f] hover:border-[#00c8e0]/50 transition-all duration-300"
+            className="col-span-2 rounded-2xl border border-[#1e3a5f] hover:border-[#00c8e0]/50 transition-all duration-300 relative overflow-hidden h-48 md:h-56"
+            style={{
+              backgroundImage: `url(${batterySystem})`,
+              backgroundSize: 'contain',
+              backgroundPosition: 'right center',
+              backgroundRepeat: 'no-repeat',
+              backgroundColor: '#0f2847'
+            }}
           >
-            <p className="text-2xl md:text-3xl font-bold text-white mb-2">All-in-One System</p>
-            <p className="text-gray-400">Complete solution in one package</p>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0f2847] via-[#0f2847]/90 to-transparent" />
+            <div className="relative z-10 p-6 md:p-8 h-full flex flex-col justify-end">
+              <p className="text-2xl md:text-3xl font-bold text-white mb-2">All-in-One System</p>
+              <p className="text-gray-400">Complete solution in one package</p>
+            </div>
           </motion.div>
 
           {/* 20kW 3 Phase Output - Full width hero card */}
@@ -67,12 +86,20 @@ export const EP2000TechPioneer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.25 }}
-            className="col-span-1 bg-gradient-to-br from-[#0f2847] to-[#1a3a5c] rounded-2xl p-6 border border-[#1e3a5f] hover:border-[#00c8e0]/50 transition-all duration-300"
+            className="col-span-1 rounded-2xl border border-[#1e3a5f] hover:border-[#00c8e0]/50 transition-all duration-300 relative overflow-hidden h-40 md:h-48"
+            style={{
+              backgroundImage: `url(${dualCoreShield})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
           >
-            <p className="text-3xl md:text-4xl font-bold text-white mb-1">
-              Six-<span className="text-[#00c8e0]">Layer</span>
-            </p>
-            <p className="text-gray-400 text-sm">Full-system protection</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/95 via-[#0a1628]/70 to-[#0a1628]/50" />
+            <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+              <p className="text-2xl md:text-3xl font-bold text-white mb-1">
+                Six-<span className="text-[#00c8e0]">Layer</span>
+              </p>
+              <p className="text-gray-400 text-sm">Full-system protection</p>
+            </div>
           </motion.div>
 
           {/* Capacity Range - Wide */}
@@ -81,10 +108,20 @@ export const EP2000TechPioneer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="col-span-1 md:col-span-3 bg-gradient-to-br from-[#0f2847] to-[#1a3a5c] rounded-2xl p-6 md:p-8 border border-[#1e3a5f] hover:border-[#00c8e0]/50 transition-all duration-300"
+            className="col-span-1 md:col-span-3 rounded-2xl border border-[#1e3a5f] hover:border-[#00c8e0]/50 transition-all duration-300 relative overflow-hidden h-40 md:h-48"
+            style={{
+              backgroundImage: `url(${batterySystem})`,
+              backgroundSize: 'contain',
+              backgroundPosition: 'right center',
+              backgroundRepeat: 'no-repeat',
+              backgroundColor: '#0f2847'
+            }}
           >
-            <p className="text-2xl md:text-4xl font-bold text-white mb-2">14.7kWh — 51.6kWh</p>
-            <p className="text-gray-400">Flexible sizing for your needs</p>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0f2847] via-[#0f2847]/85 to-transparent" />
+            <div className="relative z-10 p-6 md:p-8 h-full flex flex-col justify-end">
+              <p className="text-2xl md:text-4xl font-bold text-white mb-2">14.7kWh — 51.6kWh</p>
+              <p className="text-gray-400">Flexible sizing for your needs</p>
+            </div>
           </motion.div>
 
           {/* Parallel Units - Wide */}
@@ -93,10 +130,13 @@ export const EP2000TechPioneer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.35 }}
-            className="col-span-1 md:col-span-2 bg-gradient-to-br from-[#0f2847] to-[#1a3a5c] rounded-2xl p-6 md:p-8 border border-[#1e3a5f] hover:border-[#00c8e0]/50 transition-all duration-300"
+            className="col-span-1 md:col-span-2 bg-gradient-to-br from-[#0f2847] to-[#1a3a5c] rounded-2xl p-6 md:p-8 border border-[#1e3a5f] hover:border-[#00c8e0]/50 transition-all duration-300 relative overflow-hidden"
           >
-            <p className="text-xl md:text-2xl font-bold text-white mb-1">Parallel Up to 3 Units</p>
-            <p className="text-gray-400 text-sm">For small business</p>
+            <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-[#00c8e0]/10 rounded-full blur-2xl" />
+            <div className="relative z-10">
+              <p className="text-xl md:text-2xl font-bold text-white mb-1">Parallel Up to 3 Units</p>
+              <p className="text-gray-400 text-sm">For small business</p>
+            </div>
           </motion.div>
 
           {/* 98% Efficiency */}
@@ -107,8 +147,11 @@ export const EP2000TechPioneer = () => {
             transition={{ delay: 0.4 }}
             className="col-span-1 md:col-span-2 bg-gradient-to-br from-[#0f2847] to-[#1a3a5c] rounded-2xl p-6 md:p-8 border border-[#1e3a5f] relative overflow-hidden hover:border-[#00c8e0]/50 transition-all duration-300"
           >
-            <p className="text-4xl md:text-5xl font-bold text-[#00c8e0] mb-1">98%</p>
-            <p className="text-gray-400 text-sm">Max. inverter efficiency</p>
+            <div className="absolute -left-8 -top-8 w-32 h-32 bg-[#00c8e0]/15 rounded-full blur-2xl" />
+            <div className="relative z-10">
+              <p className="text-4xl md:text-5xl font-bold text-[#00c8e0] mb-1">98%</p>
+              <p className="text-gray-400 text-sm">Max. inverter efficiency</p>
+            </div>
           </motion.div>
 
           {/* Easy App Control */}
@@ -117,10 +160,13 @@ export const EP2000TechPioneer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.45 }}
-            className="col-span-1 md:col-span-2 bg-gradient-to-br from-[#0f2847] to-[#1a3a5c] rounded-2xl p-6 md:p-8 border border-[#1e3a5f] hover:border-[#00c8e0]/50 transition-all duration-300"
+            className="col-span-1 md:col-span-2 bg-gradient-to-br from-[#0f2847] to-[#1a3a5c] rounded-2xl p-6 md:p-8 border border-[#1e3a5f] hover:border-[#00c8e0]/50 transition-all duration-300 relative overflow-hidden"
           >
-            <p className="text-xl md:text-2xl font-bold text-white mb-1">Easy App Control</p>
-            <p className="text-gray-400 text-sm">Monitor and manage from anywhere</p>
+            <div className="absolute right-4 bottom-4 w-16 h-24 rounded-xl bg-gradient-to-b from-[#00c8e0]/20 to-[#1e88e5]/20 border border-[#00c8e0]/30" />
+            <div className="relative z-10">
+              <p className="text-xl md:text-2xl font-bold text-white mb-1">Easy App Control</p>
+              <p className="text-gray-400 text-sm">Monitor and manage from anywhere</p>
+            </div>
           </motion.div>
 
           {/* SHADE FIX Tech */}
@@ -129,10 +175,18 @@ export const EP2000TechPioneer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="col-span-1 md:col-span-2 bg-gradient-to-br from-[#0f2847] to-[#1a3a5c] rounded-2xl p-6 md:p-8 border border-[#1e3a5f] hover:border-[#00c8e0]/50 transition-all duration-300"
+            className="col-span-1 md:col-span-2 rounded-2xl border border-[#1e3a5f] hover:border-[#00c8e0]/50 transition-all duration-300 relative overflow-hidden h-40 md:h-auto"
+            style={{
+              backgroundImage: `url(${heroInstallation})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
           >
-            <p className="text-xl md:text-2xl font-bold text-white mb-1">SHADE FIX Tech</p>
-            <p className="text-gray-400 text-sm">Reduces solar shading power loss</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/95 via-[#0a1628]/70 to-[#0a1628]/40" />
+            <div className="relative z-10 p-6 md:p-8 h-full flex flex-col justify-end">
+              <p className="text-xl md:text-2xl font-bold text-white mb-1">SHADE FIX Tech</p>
+              <p className="text-gray-400 text-sm">Reduces solar shading power loss</p>
+            </div>
           </motion.div>
         </div>
       </div>
