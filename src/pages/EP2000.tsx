@@ -4,6 +4,8 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Battery, Zap, Shield, Home, Check, Building2, Sun, Clock, Tent } from "lucide-react";
+import { EP2000WhyChoose } from "@/components/EP2000WhyChoose";
+import { EP2000TechPioneer } from "@/components/EP2000TechPioneer";
 import batterySystem from "@/assets/battery-system.png";
 const features = [{
   icon: Battery,
@@ -223,10 +225,11 @@ const EP2000 = () => {
           </div>
         </section>
 
-        {/* Specifications */}
-        <section className="py-20 bg-card/50">
-          
-        </section>
+        {/* Why Choose BLUETTI */}
+        <EP2000WhyChoose />
+
+        {/* Technology Pioneer */}
+        <EP2000TechPioneer />
       </main>
       <Footer />
     </div>;
