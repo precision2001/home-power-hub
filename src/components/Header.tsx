@@ -11,6 +11,16 @@ const batteryItems = [
   { label: "Portable Power Stations", href: "/portable-power" },
 ];
 
+const productItems = [
+  { label: "Solar Panels", href: "/products/solar-panels" },
+  { label: "Inverters", href: "/products/inverters" },
+  { label: "Batteries", href: "/products/batteries" },
+  { label: "EV Chargers", href: "/products/ev-chargers" },
+  { label: "Heat Pumps", href: "/products/heat-pumps" },
+  { label: "Mountings", href: "/products/mountings" },
+  { label: "Electricals", href: "/products/electricals" },
+];
+
 const navItems = [
   { label: "Customers", href: "/customers" },
   { label: "Installers", href: "/installers" },
@@ -22,6 +32,7 @@ const navItems = [
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isBatteryOpen, setIsBatteryOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
 
   return (
     <>
@@ -60,7 +71,7 @@ export const Header = () => {
                   Battery <ChevronDown className="w-4 h-4" />
                 </button>
                 {isBatteryOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-64 glass rounded-xl p-2 shadow-xl">
+                  <div className="absolute top-full left-0 mt-2 w-64 bg-popover border border-border rounded-xl p-2 shadow-xl z-50">
                     {batteryItems.map((item) => (
                       <Link
                         key={item.label}
@@ -73,6 +84,31 @@ export const Header = () => {
                   </div>
                 )}
               </div>
+
+              {/* Products Dropdown */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setIsProductsOpen(true)}
+                onMouseLeave={() => setIsProductsOpen(false)}
+              >
+                <button className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                  Products <ChevronDown className="w-4 h-4" />
+                </button>
+                {isProductsOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-popover border border-border rounded-xl p-2 shadow-xl z-50">
+                    {productItems.map((item) => (
+                      <Link
+                        key={item.label}
+                        to={item.href}
+                        className="block px-4 py-3 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-accent/10 transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               {navItems.map((item) => (
                 <Link
                   key={item.label}
@@ -131,6 +167,18 @@ export const Header = () => {
             <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
               <p className="text-xs text-muted-foreground uppercase tracking-wider px-2 pt-2">Battery</p>
               {batteryItems.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-2 py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <div className="border-t border-border my-2" />
+              <p className="text-xs text-muted-foreground uppercase tracking-wider px-2 pt-2">Products</p>
+              {productItems.map((item) => (
                 <Link
                   key={item.label}
                   to={item.href}
