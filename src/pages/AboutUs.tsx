@@ -27,16 +27,16 @@ import portfolio6 from "@/assets/about/portfolio-6.jpg";
 import portfolio7 from "@/assets/about/portfolio-7.jpg";
 
 const values = [
-  { icon: DollarSign, title: "Price Transparency", color: "from-yellow-400 to-orange-500" },
-  { icon: Heart, title: "Customer-Centric", color: "from-pink-400 to-rose-500" },
-  { icon: Handshake, title: "Collaboration", color: "from-blue-400 to-cyan-500" },
-  { icon: Eye, title: "Transparency", color: "from-purple-400 to-indigo-500" },
-  { icon: Award, title: "Excellence", color: "from-amber-400 to-yellow-500" },
-  { icon: Star, title: "Customer Satisfaction", color: "from-green-400 to-emerald-500" },
-  { icon: BadgeCheck, title: "Quality", color: "from-teal-400 to-cyan-500" },
-  { icon: TrendingUp, title: "Value Creation", color: "from-orange-400 to-red-500" },
-  { icon: Users, title: "Team Efficiency", color: "from-indigo-400 to-purple-500" },
-  { icon: UserCheck, title: "Trusted Advisor", color: "from-sky-400 to-blue-500" },
+  { icon: DollarSign, title: "Price Transparency" },
+  { icon: Heart, title: "Customer-Centric" },
+  { icon: Handshake, title: "Collaboration" },
+  { icon: Eye, title: "Transparency" },
+  { icon: Award, title: "Excellence" },
+  { icon: Star, title: "Customer Satisfaction" },
+  { icon: BadgeCheck, title: "Quality" },
+  { icon: TrendingUp, title: "Value Creation" },
+  { icon: Users, title: "Team Efficiency" },
+  { icon: UserCheck, title: "Trusted Advisor" },
 ];
 
 const portfolioImages = [
@@ -83,8 +83,8 @@ const AboutUs = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary text-sm font-semibold mb-6">
-                  <Sun className="w-4 h-4" />
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/40 text-accent-foreground text-sm font-semibold mb-6">
+                  <Sun className="w-4 h-4 text-accent" />
                   Powered by BLUETTI
                 </span>
                 
@@ -94,7 +94,7 @@ const AboutUs = () => {
                 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground mb-6 leading-tight">
                   Advanced Solar Panels for{" "}
-                  <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                  <span className="text-accent">
                     Modern Homes
                   </span>
                 </h1>
@@ -104,11 +104,11 @@ const AboutUs = () => {
                 </p>
                 
                 <div className="flex flex-wrap gap-4 mb-8">
-                  <Button size="lg" className="bg-gradient-to-r from-accent to-primary text-accent-foreground hover:opacity-90 shadow-lg">
+                  <Button size="lg" variant="hero">
                     View Catalog
                     <ChevronRight className="w-5 h-5 ml-1" />
                   </Button>
-                  <Button size="lg" variant="outline" className="backdrop-blur-sm">
+                  <Button size="lg" variant="heroOutline">
                     Talk to Expert
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
@@ -123,19 +123,19 @@ const AboutUs = () => {
                     onClick={() => setCurrentSlide(index)}
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
                       currentSlide === index 
-                        ? 'bg-white/20 backdrop-blur-md border border-white/30' 
-                        : 'bg-white/10 backdrop-blur-sm hover:bg-white/15'
+                        ? 'bg-card/80 backdrop-blur-md border border-border shadow-lg' 
+                        : 'bg-card/40 backdrop-blur-sm border border-border/50 hover:bg-card/60'
                     }`}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     {slide.type === 'video' ? (
-                      <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                        <Play className="w-5 h-5 text-primary fill-primary" />
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00c8e0] to-[#1e88e5] flex items-center justify-center">
+                        <Play className="w-5 h-5 text-white fill-white" />
                       </div>
                     ) : (
-                      <div className="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center">
-                        <Sparkles className="w-5 h-5 text-accent" />
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00c8e0] to-[#1e88e5] flex items-center justify-center">
+                        <Sparkles className="w-5 h-5 text-white" />
                       </div>
                     )}
                     <span className="text-foreground font-medium">{slide.label}</span>
@@ -147,7 +147,7 @@ const AboutUs = () => {
         </section>
 
         {/* About Us Header Section */}
-        <section className="py-16 bg-gradient-to-b from-primary/5 to-transparent">
+        <section className="py-16 bg-primary/5">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -163,7 +163,7 @@ const AboutUs = () => {
         </section>
 
         {/* Mission Statement Section */}
-        <section className="py-20 md:py-28">
+        <section className="py-20 md:py-28 bg-background">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               <motion.div
@@ -171,7 +171,7 @@ const AboutUs = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-6">
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 text-accent text-sm font-semibold mb-6">
                   <Target className="w-4 h-4" />
                   Our Purpose
                 </span>
@@ -184,9 +184,11 @@ const AboutUs = () => {
                   Easylink Solar is the cornerstone of a dynamic solar energy ecosystem in Australia, fostering seamless collaboration among end customers, installers, and equipment vendors to deliver sustainable, high-quality energy solutions.
                 </p>
                 
-                <div className="bg-gradient-to-r from-accent/10 to-primary/10 rounded-2xl p-6 border border-accent/20">
+                <div className="bg-card rounded-2xl p-6 border-2 border-[#00c8e0] shadow-lg">
                   <h3 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
-                    <Zap className="w-5 h-5 text-accent" />
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#00c8e0] to-[#1e88e5] flex items-center justify-center">
+                      <Zap className="w-4 h-4 text-white" />
+                    </div>
                     Our Purpose: Customer Focus
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
@@ -201,13 +203,13 @@ const AboutUs = () => {
                 viewport={{ once: true }}
                 className="relative"
               >
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-card">
                   <img 
                     src={missionSolar} 
                     alt="Solar panels and sustainable energy" 
                     className="w-full h-[500px] object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
                 </div>
                 
                 {/* Floating stats card */}
@@ -216,10 +218,10 @@ const AboutUs = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
-                  className="absolute -bottom-8 -left-8 bg-background rounded-2xl p-6 shadow-xl border border-border"
+                  className="absolute -bottom-8 -left-8 bg-card rounded-2xl p-6 shadow-xl border border-border"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent to-primary flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#00c8e0] to-[#1e88e5] flex items-center justify-center">
                       <Shield className="w-7 h-7 text-white" />
                     </div>
                     <div>
@@ -236,20 +238,20 @@ const AboutUs = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-20 bg-gradient-to-r from-[#0a1628] to-[#1a2f4a] rounded-3xl p-8 md:p-12 text-white"
+              className="mt-20 bg-secondary rounded-3xl p-8 md:p-12"
             >
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-secondary-foreground mb-4">
                     Solar Installers Ecosystem
                   </h3>
-                  <p className="text-white/80 leading-relaxed">
+                  <p className="text-secondary-foreground/80 leading-relaxed">
                     It addresses inconsistent lead quality, administrative inefficiencies, and scaling limitations by delivering pre-qualified leads, integrated CRM and quoting tools, marketing support, competitive commissions, and training programs to streamline operations and boost business growth in a competitive market.
                   </p>
                 </div>
                 <div className="flex justify-center md:justify-end">
                   <Link to="/installers">
-                    <Button size="lg" className="bg-white text-[#0a1628] hover:bg-white/90">
+                    <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg">
                       Join Our Network
                       <ArrowRight className="w-5 h-5 ml-2" />
                     </Button>
@@ -261,7 +263,7 @@ const AboutUs = () => {
         </section>
 
         {/* Customer Focus Section */}
-        <section className="py-20 bg-card/50">
+        <section className="py-20 bg-primary/5">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               <motion.div
@@ -284,7 +286,7 @@ const AboutUs = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
-                  className="absolute -top-6 -right-6 bg-gradient-to-br from-accent to-primary rounded-2xl p-4 shadow-xl"
+                  className="absolute -top-6 -right-6 bg-gradient-to-br from-[#00c8e0] to-[#1e88e5] rounded-2xl p-5 shadow-xl"
                 >
                   <div className="text-center text-white">
                     <Star className="w-8 h-8 mx-auto mb-1 fill-white" />
@@ -300,8 +302,8 @@ const AboutUs = () => {
                 viewport={{ once: true }}
                 className="order-1 lg:order-2"
               >
-                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6">
-                  <Heart className="w-4 h-4" />
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#00c8e0]/20 to-[#1e88e5]/20 border border-[#00c8e0]/30 text-foreground text-sm font-semibold mb-6">
+                  <Heart className="w-4 h-4 text-[#00c8e0]" />
                   Customer Focus
                 </span>
                 
@@ -317,7 +319,7 @@ const AboutUs = () => {
                   From the very first conversation, this transparent approach builds immediate trust and a strong sense of shared responsibility toward achieving the best possible results for you.
                 </p>
                 
-                <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-6 border border-primary/10">
+                <div className="bg-card rounded-2xl p-6 border border-border shadow-md">
                   <p className="text-foreground leading-relaxed">
                     <span className="font-semibold">Our nationwide network</span> of CEC-accredited member installers (Clean Energy Council accredited, the recognised standard for quality and competence in Australia's solar industry) fully shares our customer-first ethos and core values.
                   </p>
@@ -336,7 +338,7 @@ const AboutUs = () => {
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${valuesBg})` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628]/95 via-[#0a1628]/90 to-[#1a2f4a]/85" />
+          <div className="absolute inset-0 bg-secondary/95" />
           
           <div className="container mx-auto px-4 relative z-10">
             <motion.div
@@ -345,18 +347,18 @@ const AboutUs = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <span className="inline-block px-4 py-2 rounded-full bg-white/10 text-white/90 text-sm font-semibold mb-4">
+              <span className="inline-block px-4 py-2 rounded-full bg-accent/20 border border-accent/30 text-accent text-sm font-semibold mb-4">
                 Our Core Principles
               </span>
-              <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
+              <h2 className="text-4xl md:text-5xl font-heading font-bold text-secondary-foreground mb-4">
                 Values
               </h2>
-              <p className="text-white/70 max-w-2xl mx-auto">
+              <p className="text-secondary-foreground/70 max-w-2xl mx-auto">
                 These principles guide every decision we make and every relationship we build.
               </p>
             </motion.div>
             
-            {/* Values Grid - 3x3 + 1 layout */}
+            {/* Values Grid - 5x2 layout */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
               {values.map((value, index) => (
                 <motion.div
@@ -365,14 +367,14 @@ const AboutUs = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className={`group relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-5 hover:bg-white/15 transition-all duration-300 hover:scale-105 ${
+                  className={`group bg-card/10 backdrop-blur-sm border border-secondary-foreground/20 rounded-2xl p-5 hover:bg-card/20 transition-all duration-300 hover:scale-105 hover:border-[#00c8e0]/50 ${
                     index === 9 ? 'col-span-2 md:col-span-3 lg:col-span-1' : ''
                   }`}
                 >
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${value.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00c8e0] to-[#1e88e5] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
                     <value.icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white">{value.title}</h3>
+                  <h3 className="text-lg font-semibold text-secondary-foreground">{value.title}</h3>
                 </motion.div>
               ))}
             </div>
@@ -380,7 +382,7 @@ const AboutUs = () => {
         </section>
 
         {/* Site Portfolio Section */}
-        <section className="py-20 bg-gradient-to-b from-background to-card/50">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -388,7 +390,7 @@ const AboutUs = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-4">
+              <span className="inline-block px-4 py-2 rounded-full bg-accent/20 border border-accent/30 text-accent text-sm font-semibold mb-4">
                 Our Work
               </span>
               <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground">
@@ -405,7 +407,7 @@ const AboutUs = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className={`group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ${
+                  className={`group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-3 border-transparent hover:border-[#00c8e0] ${
                     index === 0 || index === 3 ? 'row-span-2' : ''
                   } ${index === 0 ? 'col-span-2 md:col-span-1' : ''}`}
                 >
@@ -416,9 +418,9 @@ const AboutUs = () => {
                       index === 0 || index === 3 ? 'h-full min-h-[300px]' : 'h-48 md:h-56'
                     }`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-sm font-medium">{image.alt}</p>
+                    <p className="text-card text-sm font-medium">{image.alt}</p>
                   </div>
                 </motion.div>
               ))}
@@ -427,7 +429,7 @@ const AboutUs = () => {
         </section>
 
         {/* Newsletter Section */}
-        <section className="py-20 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
+        <section className="py-20 bg-primary/5">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -435,8 +437,8 @@ const AboutUs = () => {
               viewport={{ once: true }}
               className="max-w-3xl mx-auto text-center"
             >
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6">
-                <Mail className="w-4 h-4" />
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#00c8e0]/20 to-[#1e88e5]/20 border border-[#00c8e0]/30 text-foreground text-sm font-semibold mb-6">
+                <Mail className="w-4 h-4 text-[#00c8e0]" />
                 Stay Connected
               </span>
               
@@ -444,7 +446,7 @@ const AboutUs = () => {
                 Stay up to date on the latest at
               </h2>
               
-              <h3 className="text-2xl md:text-3xl font-heading font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent mb-6">
+              <h3 className="text-2xl md:text-3xl font-heading font-bold text-accent mb-6">
                 Join our Mailing List
               </h3>
               
@@ -458,9 +460,9 @@ const AboutUs = () => {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 h-12 px-4 rounded-xl border-border bg-background"
+                  className="flex-1 h-12 px-4 rounded-xl border-border bg-card"
                 />
-                <Button size="lg" className="bg-gradient-to-r from-accent to-primary text-accent-foreground hover:opacity-90 shadow-lg rounded-xl">
+                <Button size="lg" variant="hero" className="rounded-xl">
                   Subscribe
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -474,7 +476,7 @@ const AboutUs = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="relative py-24 overflow-hidden bg-gradient-to-br from-[#0a1628] to-[#1a2f4a]">
+        <section className="relative py-24 overflow-hidden bg-secondary">
           <div className="absolute inset-0 opacity-20">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIxIDEuNzktNCA0LTRzNCAxLjc5IDQgNC0xLjc5IDQtNCA0LTQtMS43OS00LTR6Ii8+PC9nPjwvZz48L3N2Zz4=')]" />
           </div>
@@ -486,21 +488,21 @@ const AboutUs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-secondary-foreground mb-6">
                   Ready to Join the Solar Revolution?
                 </h2>
-                <p className="text-lg text-white/80 mb-8">
+                <p className="text-lg text-secondary-foreground/80 mb-8">
                   Whether you're a homeowner looking to save on energy bills or an installer ready to grow your business, we're here to help.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <Link to="/contact">
-                    <Button size="lg" className="bg-white text-[#0a1628] hover:bg-white/90 shadow-xl">
+                    <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-xl">
                       Get Started Today
                       <ArrowRight className="w-5 h-5 ml-2" />
                     </Button>
                   </Link>
                   <Link to="/installers">
-                    <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">
+                    <Button size="lg" variant="outline" className="border-secondary-foreground/30 text-secondary-foreground hover:bg-secondary-foreground/10">
                       Become an Installer
                     </Button>
                   </Link>
