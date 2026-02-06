@@ -1,131 +1,261 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { motion } from "framer-motion";
 import { 
-  Sun, Users, Award, Target, Heart, Leaf, Zap, Shield, 
-  TrendingUp, Handshake, Eye, Lightbulb, BadgeCheck, Clock,
-  ArrowRight, CheckCircle2, Star
+  Sun, Users, Heart, Zap, Shield, 
+  TrendingUp, Handshake, Eye, Lightbulb, BadgeCheck,
+  ArrowRight, CheckCircle2, Star, Play, ChevronRight,
+  DollarSign, Award, Target, UserCheck, Sparkles, Mail
 } from "lucide-react";
-import aboutHero from "@/assets/about-hero.jpg";
-import aboutCustomer from "@/assets/about-customer.jpg";
-import aboutInstaller from "@/assets/about-installer.jpg";
-import heroFamilySolar from "@/assets/hero-family-solar.jpg";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-const milestones = [
-  { year: "2016", title: "Founded in Sydney", description: "Established as a solar energy solutions provider, connecting customers with quality installers." },
-  { year: "2020", title: "AI Platform Launch", description: "Rolled out advanced AI-driven quoting system with 95% accurate roof analysis." },
-  { year: "2024", title: "100+ Quotes Milestone", description: "Surpassed 100 personalized solar quotes, empowering customers nationwide." },
-  { year: "2025", title: "VPP Connect Launch", description: "Introducing Virtual Power Plant Connect Service for enhanced energy optimization." },
-];
+// Import images
+import solarHeroVideo from "@/assets/about/solar-hero-video.jpg";
+import solarPanelsHero from "@/assets/about/solar-panels-hero.jpg";
+import missionSolar from "@/assets/about/mission-solar.jpg";
+import customerFocus from "@/assets/about/customer-focus.jpg";
+import valuesBg from "@/assets/about/values-bg.jpg";
+import portfolio1 from "@/assets/about/portfolio-1.jpg";
+import portfolio2 from "@/assets/about/portfolio-2.jpg";
+import portfolio3 from "@/assets/about/portfolio-3.jpg";
+import portfolio4 from "@/assets/about/portfolio-4.jpg";
+import portfolio5 from "@/assets/about/portfolio-5.jpg";
+import portfolio6 from "@/assets/about/portfolio-6.jpg";
+import portfolio7 from "@/assets/about/portfolio-7.jpg";
 
 const values = [
-  { icon: Eye, title: "Price Transparency", description: "Clear, upfront pricing with no hidden costs or surprises." },
-  { icon: Heart, title: "Customer Excellence", description: "5-star service with a no-pressure, customer-first approach." },
-  { icon: Handshake, title: "Collaboration", description: "Building strong partnerships between customers, installers, and vendors." },
-  { icon: Lightbulb, title: "Innovation", description: "AI-powered solutions driving the future of solar energy." },
-  { icon: BadgeCheck, title: "Quality Assurance", description: "CEC-accredited installers and premium equipment only." },
-  { icon: TrendingUp, title: "Value Creation", description: "Maximizing ROI and long-term savings for every customer." },
+  { icon: DollarSign, title: "Price Transparency", color: "from-yellow-400 to-orange-500" },
+  { icon: Heart, title: "Customer-Centric", color: "from-pink-400 to-rose-500" },
+  { icon: Handshake, title: "Collaboration", color: "from-blue-400 to-cyan-500" },
+  { icon: Eye, title: "Transparency", color: "from-purple-400 to-indigo-500" },
+  { icon: Award, title: "Excellence", color: "from-amber-400 to-yellow-500" },
+  { icon: Star, title: "Customer Satisfaction", color: "from-green-400 to-emerald-500" },
+  { icon: BadgeCheck, title: "Quality", color: "from-teal-400 to-cyan-500" },
+  { icon: TrendingUp, title: "Value Creation", color: "from-orange-400 to-red-500" },
+  { icon: Users, title: "Team Efficiency", color: "from-indigo-400 to-purple-500" },
+  { icon: UserCheck, title: "Trusted Advisor", color: "from-sky-400 to-blue-500" },
 ];
 
-const stats = [
-  { value: "100+", label: "Quotes Created", icon: Zap },
-  { value: "500+", label: "Certified Installers", icon: Users },
-  { value: "95%", label: "Roof Analysis Accuracy", icon: Target },
-  { value: "5★", label: "Customer Rating", icon: Star },
+const portfolioImages = [
+  { src: portfolio1, alt: "Solar installation on residential roof" },
+  { src: portfolio2, alt: "Commercial solar project" },
+  { src: portfolio3, alt: "Ground-mounted solar array" },
+  { src: portfolio4, alt: "Rooftop solar panels" },
+  { src: portfolio5, alt: "Solar farm aerial view" },
+  { src: portfolio6, alt: "Residential solar installation" },
+  { src: portfolio7, alt: "Solar battery system" },
+];
+
+const heroSlides = [
+  { type: 'video', src: solarHeroVideo, label: '1 video' },
+  { type: 'image', src: solarPanelsHero, label: '2 Image slides' },
 ];
 
 const AboutUs = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [email, setEmail] = useState("");
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        {/* Hero Section with Full-Width Background */}
-        <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-          <div 
+        {/* Hero Section - Solar Panels */}
+        <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+          {/* Background with slide transition */}
+          <motion.div 
+            key={currentSlide}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${aboutHero})` }}
+            style={{ backgroundImage: `url(${heroSlides[currentSlide].src})` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+          
+          {/* Content */}
           <div className="container mx-auto px-4 relative z-10 py-24">
-            <div className="max-w-2xl">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium mb-6">
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary text-sm font-semibold mb-6">
                   <Sun className="w-4 h-4" />
-                  About EasyLink Solar
+                  Powered by BLUETTI
                 </span>
+                
+                <h2 className="text-xl md:text-2xl font-medium text-muted-foreground mb-2">
+                  Solar Panels
+                </h2>
+                
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground mb-6 leading-tight">
-                  Powering Australia's
-                  <span className="block bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
-                    Solar Revolution
+                  Advanced Solar Panels for{" "}
+                  <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                    Modern Homes
                   </span>
                 </h1>
-                <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-                  Since 2016, we've been transforming how Australians access solar energy through AI-powered technology, transparent pricing, and a network of certified installers.
+                
+                <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
+                  Discover our range of high-performance solar panels designed to maximize efficiency and reliability for your solar energy system.
                 </p>
-                <div className="flex flex-wrap gap-4">
-                  <Button size="lg" className="bg-gradient-to-r from-accent to-primary text-accent-foreground hover:opacity-90">
-                    Get Your Free Quote
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                
+                <div className="flex flex-wrap gap-4 mb-8">
+                  <Button size="lg" className="bg-gradient-to-r from-accent to-primary text-accent-foreground hover:opacity-90 shadow-lg">
+                    View Catalog
+                    <ChevronRight className="w-5 h-5 ml-1" />
                   </Button>
-                  <Button size="lg" variant="outline">
-                    Meet Our Team
+                  <Button size="lg" variant="outline" className="backdrop-blur-sm">
+                    Talk to Expert
+                    <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
               </motion.div>
+              
+              {/* Media indicators */}
+              <div className="hidden lg:flex flex-col items-end justify-center gap-4">
+                {heroSlides.map((slide, index) => (
+                  <motion.button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
+                      currentSlide === index 
+                        ? 'bg-white/20 backdrop-blur-md border border-white/30' 
+                        : 'bg-white/10 backdrop-blur-sm hover:bg-white/15'
+                    }`}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {slide.type === 'video' ? (
+                      <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+                        <Play className="w-5 h-5 text-primary fill-primary" />
+                      </div>
+                    ) : (
+                      <div className="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center">
+                        <Sparkles className="w-5 h-5 text-accent" />
+                      </div>
+                    )}
+                    <span className="text-foreground font-medium">{slide.label}</span>
+                  </motion.button>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Stats Bar */}
-        <section className="py-8 bg-gradient-to-r from-accent/10 via-primary/5 to-accent/10 border-y border-border">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-4 justify-center"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00c8e0] to-[#1e88e5] flex items-center justify-center">
-                    <stat.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <span className="text-2xl md:text-3xl font-heading font-bold text-foreground">{stat.value}</span>
-                    <p className="text-sm text-muted-foreground">{stat.label}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Mission Statement */}
-        <section className="py-20 md:py-28">
+        {/* About Us Header Section */}
+        <section className="py-16 bg-gradient-to-b from-primary/5 to-transparent">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="max-w-4xl mx-auto text-center"
+              className="text-center"
             >
-              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                Our Mission
-              </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-8 leading-tight">
-                The Cornerstone of Australia's Solar Energy Ecosystem
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground">
+                About Us
               </h2>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                Easylink Solar fosters seamless collaboration among end customers, installers, and equipment vendors to deliver sustainable, high-quality energy solutions. We're not just selling solar — we're building a community dedicated to a cleaner, greener Australia.
-              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Mission Statement Section */}
+        <section className="py-20 md:py-28">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-6">
+                  <Target className="w-4 h-4" />
+                  Our Purpose
+                </span>
+                
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-6 leading-tight">
+                  Mission Statement
+                </h2>
+                
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  Easylink Solar is the cornerstone of a dynamic solar energy ecosystem in Australia, fostering seamless collaboration among end customers, installers, and equipment vendors to deliver sustainable, high-quality energy solutions.
+                </p>
+                
+                <div className="bg-gradient-to-r from-accent/10 to-primary/10 rounded-2xl p-6 border border-accent/20">
+                  <h3 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
+                    <Zap className="w-5 h-5 text-accent" />
+                    Our Purpose: Customer Focus
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Easylink Solar solves the challenge of opaque pricing, unreliable providers, and complex decision-making for Australian end customers by providing AI-powered instant assessments, transparent personalized quotes incorporating 2025 incentives, and connections to a verified network of accredited installers, ensuring hassle-free access to high-ROI solar solutions without aggressive sales tactics.
+                  </p>
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                  <img 
+                    src={missionSolar} 
+                    alt="Solar panels and sustainable energy" 
+                    className="w-full h-[500px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                </div>
+                
+                {/* Floating stats card */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="absolute -bottom-8 -left-8 bg-background rounded-2xl p-6 shadow-xl border border-border"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent to-primary flex items-center justify-center">
+                      <Shield className="w-7 h-7 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-foreground">CEC Accredited</p>
+                      <p className="text-sm text-muted-foreground">Verified Network</p>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+            
+            {/* Installer Ecosystem callout */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-20 bg-gradient-to-r from-[#0a1628] to-[#1a2f4a] rounded-3xl p-8 md:p-12 text-white"
+            >
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                    Solar Installers Ecosystem
+                  </h3>
+                  <p className="text-white/80 leading-relaxed">
+                    It addresses inconsistent lead quality, administrative inefficiencies, and scaling limitations by delivering pre-qualified leads, integrated CRM and quoting tools, marketing support, competitive commissions, and training programs to streamline operations and boost business growth in a competitive market.
+                  </p>
+                </div>
+                <div className="flex justify-center md:justify-end">
+                  <Link to="/installers">
+                    <Button size="lg" className="bg-white text-[#0a1628] hover:bg-white/90">
+                      Join Our Network
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
             </motion.div>
           </div>
         </section>
@@ -138,255 +268,239 @@ const AboutUs = () => {
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="order-2 lg:order-1"
+                className="relative order-2 lg:order-1"
               >
-                <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
-                  Customer Focus
-                </span>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-6">
-                  Solving Real Problems for Real Australians
-                </h2>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  We understand the challenges you face: opaque pricing, unreliable providers, and complex decision-making. That's why we built a platform that puts you first.
-                </p>
-                <div className="space-y-4 mb-8">
-                  {[
-                    "AI-powered instant roof assessments",
-                    "Transparent quotes with 2025 incentives included",
-                    "Verified network of CEC-accredited installers",
-                    "No aggressive sales tactics — ever"
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                      <span className="text-foreground">{item}</span>
-                    </div>
-                  ))}
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                  <img 
+                    src={customerFocus} 
+                    alt="Customer consultation" 
+                    className="w-full h-[500px] object-cover"
+                  />
                 </div>
-                <Link to="/contact">
-                  <Button className="bg-gradient-to-r from-accent to-primary text-accent-foreground">
-                    Talk to an Expert
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </Link>
+                
+                {/* Floating badge */}
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="absolute -top-6 -right-6 bg-gradient-to-br from-accent to-primary rounded-2xl p-4 shadow-xl"
+                >
+                  <div className="text-center text-white">
+                    <Star className="w-8 h-8 mx-auto mb-1 fill-white" />
+                    <p className="text-2xl font-bold">5★</p>
+                    <p className="text-xs opacity-90">Rating</p>
+                  </div>
+                </motion.div>
               </motion.div>
+              
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 className="order-1 lg:order-2"
               >
-                <div className="relative">
-                  <img 
-                    src={aboutCustomer} 
-                    alt="Happy customers with solar installation" 
-                    className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
-                  />
-                  <div className="absolute -bottom-6 -left-6 bg-background rounded-xl p-4 shadow-xl border border-border">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center">
-                        <Heart className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <p className="font-bold text-foreground">5-Star Reviews</p>
-                        <p className="text-sm text-muted-foreground">Consistent excellence</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Installer Ecosystem Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <div className="relative">
-                  <img 
-                    src={aboutInstaller} 
-                    alt="Solar installer at work" 
-                    className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
-                  />
-                  <div className="absolute -bottom-6 -right-6 bg-background rounded-xl p-4 shadow-xl border border-border">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#00c8e0] to-[#1e88e5] flex items-center justify-center">
-                        <TrendingUp className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <p className="font-bold text-foreground">Grow Your Business</p>
-                        <p className="text-sm text-muted-foreground">Pre-qualified leads</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-                  Installer Ecosystem
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6">
+                  <Heart className="w-4 h-4" />
+                  Customer Focus
                 </span>
+                
                 <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-6">
-                  Empowering Solar Professionals
+                  We Begin By Actively Listening
                 </h2>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  We address the challenges installers face: inconsistent lead quality, administrative inefficiencies, and scaling limitations. Our platform helps you grow.
+                
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  We begin by actively listening to our customers — understanding their expectations, needs, and pain points. This allows us to clearly define shared goals and collaboratively design a tailored solar solution, presenting realistic options that align with your budget and desired outcomes.
                 </p>
-                <div className="space-y-4 mb-8">
-                  {[
-                    "Pre-qualified leads delivered to you",
-                    "Integrated CRM and quoting tools",
-                    "Marketing support and training programs",
-                    "Competitive commissions structure"
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-foreground">{item}</span>
-                    </div>
-                  ))}
+                
+                <p className="text-muted-foreground leading-relaxed mb-8">
+                  From the very first conversation, this transparent approach builds immediate trust and a strong sense of shared responsibility toward achieving the best possible results for you.
+                </p>
+                
+                <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-6 border border-primary/10">
+                  <p className="text-foreground leading-relaxed">
+                    <span className="font-semibold">Our nationwide network</span> of CEC-accredited member installers (Clean Energy Council accredited, the recognised standard for quality and competence in Australia's solar industry) fully shares our customer-first ethos and core values.
+                  </p>
+                  <p className="text-muted-foreground mt-4">
+                    The result? We consistently deliver high-performing, customer-satisfying solutions that maximise value, comfort, and long-term savings — often leading to enthusiastic referrals from happy customers to their family, friends, and networks.
+                  </p>
                 </div>
-                <Link to="/installers">
-                  <Button variant="outline">
-                    Join Our Network
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </Link>
               </motion.div>
             </div>
           </div>
         </section>
 
         {/* Values Section */}
-        <section className="py-20 bg-gradient-to-br from-[#0a1628] to-[#1a2f4a] text-white">
-          <div className="container mx-auto px-4">
+        <section className="py-20 relative overflow-hidden">
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${valuesBg})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628]/95 via-[#0a1628]/90 to-[#1a2f4a]/85" />
+          
+          <div className="container mx-auto px-4 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <span className="inline-block px-4 py-2 rounded-full bg-white/10 text-white/90 text-sm font-medium mb-4">
-                Our Values
+              <span className="inline-block px-4 py-2 rounded-full bg-white/10 text-white/90 text-sm font-semibold mb-4">
+                Our Core Principles
               </span>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-                What We Stand For
+              <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
+                Values
               </h2>
               <p className="text-white/70 max-w-2xl mx-auto">
-                These core principles guide every decision we make and every relationship we build.
+                These principles guide every decision we make and every relationship we build.
               </p>
             </motion.div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            {/* Values Grid - 3x3 + 1 layout */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
               {values.map((value, index) => (
                 <motion.div
                   key={value.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
+                  transition={{ delay: index * 0.05 }}
+                  className={`group relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-5 hover:bg-white/15 transition-all duration-300 hover:scale-105 ${
+                    index === 9 ? 'col-span-2 md:col-span-3 lg:col-span-1' : ''
+                  }`}
                 >
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#00c8e0] to-[#1e88e5] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <value.icon className="w-7 h-7 text-white" />
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${value.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
+                    <value.icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                  <p className="text-white/70">{value.description}</p>
+                  <h3 className="text-lg font-semibold text-white">{value.title}</h3>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Timeline Section */}
-        <section className="py-20">
+        {/* Site Portfolio Section */}
+        <section className="py-20 bg-gradient-to-b from-background to-card/50">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mb-12"
             >
-              <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
-                Our Journey
+              <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-4">
+                Our Work
               </span>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-                Milestones That Matter
+              <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground">
+                Site Portfolio
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                From a small Sydney startup to Australia's leading AI-powered solar platform.
-              </p>
             </motion.div>
-            <div className="max-w-4xl mx-auto">
-              <div className="relative">
-                {/* Timeline line */}
-                <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-primary to-accent/50" />
-                
-                {milestones.map((milestone, index) => (
-                  <motion.div
-                    key={milestone.year}
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.15 }}
-                    className={`relative flex items-center mb-12 ${
-                      index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+            
+            {/* Portfolio Grid - Masonry style */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {portfolioImages.map((image, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className={`group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ${
+                    index === 0 || index === 3 ? 'row-span-2' : ''
+                  } ${index === 0 ? 'col-span-2 md:col-span-1' : ''}`}
+                >
+                  <img 
+                    src={image.src} 
+                    alt={image.alt}
+                    className={`w-full object-cover transition-transform duration-500 group-hover:scale-110 ${
+                      index === 0 || index === 3 ? 'h-full min-h-[300px]' : 'h-48 md:h-56'
                     }`}
-                  >
-                    {/* Year bubble */}
-                    <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-white font-bold shadow-lg z-10">
-                      {milestone.year}
-                    </div>
-                    
-                    {/* Content card */}
-                    <div className={`ml-28 md:ml-0 md:w-5/12 ${index % 2 === 0 ? 'md:pr-16' : 'md:pl-16'}`}>
-                      <div className="bg-card border border-border rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                        <h3 className="text-xl font-semibold text-foreground mb-2">{milestone.title}</h3>
-                        <p className="text-muted-foreground">{milestone.description}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-white text-sm font-medium">{image.alt}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
 
+        {/* Newsletter Section */}
+        <section className="py-20 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-3xl mx-auto text-center"
+            >
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6">
+                <Mail className="w-4 h-4" />
+                Stay Connected
+              </span>
+              
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4">
+                Stay up to date on the latest at
+              </h2>
+              
+              <h3 className="text-2xl md:text-3xl font-heading font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent mb-6">
+                Join our Mailing List
+              </h3>
+              
+              <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
+                Subscribe for updates on new features, insights, early access opportunities, and events.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="flex-1 h-12 px-4 rounded-xl border-border bg-background"
+                />
+                <Button size="lg" className="bg-gradient-to-r from-accent to-primary text-accent-foreground hover:opacity-90 shadow-lg rounded-xl">
+                  Subscribe
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
+              
+              <p className="text-xs text-muted-foreground mt-4">
+                By subscribing, you agree to receive marketing communications from us.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
         {/* CTA Section */}
-        <section className="relative py-24 overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${heroFamilySolar})` }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
+        <section className="relative py-24 overflow-hidden bg-gradient-to-br from-[#0a1628] to-[#1a2f4a]">
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIxIDEuNzktNCA0LTRzNCAxLjc5IDQgNC0xLjc5IDQtNCA0LTQtMS43OS00LTR6Ii8+PC9nPjwvZz48L3N2Zz4=')]" />
+          </div>
+          
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-2xl">
+            <div className="max-w-3xl mx-auto text-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-6">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
                   Ready to Join the Solar Revolution?
                 </h2>
-                <p className="text-lg text-muted-foreground mb-8">
+                <p className="text-lg text-white/80 mb-8">
                   Whether you're a homeowner looking to save on energy bills or an installer ready to grow your business, we're here to help.
                 </p>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap justify-center gap-4">
                   <Link to="/contact">
-                    <Button size="lg" className="bg-gradient-to-r from-accent to-primary text-accent-foreground hover:opacity-90">
+                    <Button size="lg" className="bg-white text-[#0a1628] hover:bg-white/90 shadow-xl">
                       Get Started Today
-                      <ArrowRight className="w-4 h-4 ml-2" />
+                      <ArrowRight className="w-5 h-5 ml-2" />
                     </Button>
                   </Link>
                   <Link to="/installers">
-                    <Button size="lg" variant="outline">
+                    <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">
                       Become an Installer
                     </Button>
                   </Link>
