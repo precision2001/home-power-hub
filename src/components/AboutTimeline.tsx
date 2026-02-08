@@ -2,110 +2,82 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import { 
   Rocket, Users, Award, Building2, Globe, Zap, 
-  TrendingUp, Star, Play, Pause, ChevronDown
+  Brain, Star, Play, Pause, ChevronDown, BarChart3, Network
 } from "lucide-react";
 import portfolio1 from "@/assets/about/portfolio-1.jpg";
 import portfolio2 from "@/assets/about/portfolio-2.jpg";
 import portfolio3 from "@/assets/about/portfolio-3.jpg";
 import portfolio4 from "@/assets/about/portfolio-4.jpg";
 import portfolio5 from "@/assets/about/portfolio-5.jpg";
-import portfolio6 from "@/assets/about/portfolio-6.jpg";
-import portfolio7 from "@/assets/about/portfolio-7.jpg";
 import energyFlowVideo from "@/assets/energy-flow.mp4";
 
 const timelineData = [
   {
     year: "2016",
-    title: "The Beginning",
-    subtitle: "A Vision Takes Shape",
-    description: "EasyLink Solar was founded with a simple mission: make solar energy accessible and affordable for every Australian household. Starting from a small office in Sydney, our founders began connecting homeowners with trusted local installers.",
+    title: "Founding",
+    subtitle: "The Beginning",
+    description: "Established as a solar energy solutions provider in Sydney, Australia, focusing on connecting customers, installers, and vendors. EasyLink Solar was born from a vision to make solar energy accessible and transparent for every Australian household.",
     icon: Rocket,
     image: portfolio1,
     stats: [
-      { label: "Team Members", value: "5" },
-      { label: "First Installs", value: "50+" }
+      { label: "Location", value: "Sydney" },
+      { label: "Mission", value: "Connect & Serve" }
     ],
     color: "from-amber-400 to-orange-500"
   },
   {
-    year: "2018",
-    title: "Growing Momentum",
-    subtitle: "Expanding Our Reach",
-    description: "Rapid expansion across NSW and Victoria. We launched our proprietary quote comparison platform, revolutionizing how Australians shop for solar. Our installer network grew to over 100 certified professionals.",
-    icon: TrendingUp,
+    year: "2025",
+    title: "Platform Launch & AI Integration",
+    subtitle: "Active as of 2025",
+    description: "Rolled out an advanced AI-driven quoting system using satellite imagery and machine learning for 95% accurate roof analysis, generating hundreds of optimized configurations with full 2025 incentive integration for transparent, instant quotes.",
+    icon: Brain,
     image: portfolio2,
+    hasVideo: true,
     stats: [
-      { label: "States Covered", value: "3" },
-      { label: "Partner Installers", value: "100+" }
+      { label: "Roof Analysis Accuracy", value: "95%" },
+      { label: "Incentive Integration", value: "2025" }
+    ],
+    color: "from-[#00c8e0] to-[#1e88e5]"
+  },
+  {
+    year: "Oct 2025",
+    title: "User Growth & Quote Generation",
+    subtitle: "Major Milestone",
+    description: "Surpassed 1000 personalized solar quotes created nationwide, empowering customers with high-ROI options and pre-qualified leads for installers. A testament to our commitment to transparent, data-driven solar solutions.",
+    icon: BarChart3,
+    image: portfolio3,
+    stats: [
+      { label: "Quotes Generated", value: "1,000+" },
+      { label: "Coverage", value: "Nationwide" }
     ],
     color: "from-emerald-400 to-teal-500"
   },
   {
-    year: "2020",
-    title: "Digital Innovation",
-    subtitle: "AI-Powered Solutions",
-    description: "Launched our AI-powered instant assessment tool, providing homeowners with accurate solar potential analysis in seconds. Introduced virtual consultations and remote site assessments during the pandemic.",
-    icon: Zap,
-    image: portfolio3,
-    hasVideo: true,
-    stats: [
-      { label: "AI Assessments", value: "10K+" },
-      { label: "Customer Rating", value: "4.9★" }
-    ],
-    color: "from-blue-400 to-indigo-500"
-  },
-  {
-    year: "2022",
-    title: "National Presence",
-    subtitle: "Coast to Coast Coverage",
-    description: "Achieved nationwide coverage with installer partners in every Australian state and territory. Became the exclusive distributor of BLUETTI premium energy storage systems.",
-    icon: Globe,
+    year: "Ongoing",
+    title: "Customer Excellence",
+    subtitle: "Our Commitment",
+    description: "Achieved consistent 5-star reviews, underscoring commitment to transparent, no-pressure service and premium Clean Energy Council-approved equipment. Every interaction reflects our customer-first philosophy.",
+    icon: Star,
     image: portfolio4,
     stats: [
-      { label: "Coverage", value: "100%" },
-      { label: "BLUETTI Partner", value: "Exclusive" }
-    ],
-    color: "from-violet-400 to-purple-500"
-  },
-  {
-    year: "2023",
-    title: "Industry Recognition",
-    subtitle: "Excellence Acknowledged",
-    description: "Received multiple industry awards including 'Best Solar Marketplace' and 'Innovation in Customer Experience'. Our installer training program became CEC-accredited.",
-    icon: Award,
-    image: portfolio5,
-    stats: [
-      { label: "Industry Awards", value: "5" },
-      { label: "CEC Accredited", value: "Yes" }
+      { label: "Customer Rating", value: "5★" },
+      { label: "Equipment", value: "CEC Approved" }
     ],
     color: "from-rose-400 to-pink-500"
   },
   {
-    year: "2024",
-    title: "Community Impact",
-    subtitle: "Empowering Installers",
-    description: "Launched comprehensive installer ecosystem with CRM tools, marketing support, and competitive commissions. Our community-first approach helped over 500 solar businesses grow.",
-    icon: Users,
-    image: portfolio6,
-    stats: [
-      { label: "Active Installers", value: "500+" },
-      { label: "Jobs Created", value: "1,000+" }
-    ],
-    color: "from-cyan-400 to-blue-500"
-  },
-  {
-    year: "2025",
-    title: "The Future",
-    subtitle: "Leading the Revolution",
-    description: "Pioneering the next generation of home energy solutions with integrated solar, battery, and EV charging systems. Our vision: every Australian home powered by clean, affordable energy.",
-    icon: Star,
-    image: portfolio7,
+    year: "2025+",
+    title: "Ecosystem Expansion",
+    subtitle: "VPP Forthcoming",
+    description: "Built a verified network of certified installers with integrated CRM tools, marketing support, and upcoming Virtual Power Plant (VPP) Connect Service to enhance collaboration and energy optimization across Australia.",
+    icon: Network,
+    image: portfolio5,
     hasVideo: true,
     stats: [
-      { label: "Quotes Generated", value: "11,000+" },
-      { label: "Future Installs", value: "∞" }
+      { label: "Installer Network", value: "Certified" },
+      { label: "Coming Soon", value: "VPP Connect" }
     ],
-    color: "from-[#00c8e0] to-[#1e88e5]"
+    color: "from-violet-400 to-purple-500"
   }
 ];
 
@@ -150,8 +122,8 @@ export const AboutTimeline = () => {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground mb-4">
             About Us
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From humble beginnings to Australia's leading solar marketplace — discover our journey of innovation, growth, and commitment to sustainable energy.
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Easylink Solar, founded in Sydney in 2016, has evolved into Australia's leading AI-powered solar platform, marked by several notable achievements in technology adoption, user engagement, and market impact.
           </p>
         </motion.div>
 
