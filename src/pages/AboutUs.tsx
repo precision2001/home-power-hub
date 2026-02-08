@@ -9,6 +9,7 @@ import {
   ArrowRight, CheckCircle2, Star, Play, ChevronRight,
   DollarSign, Award, Target, UserCheck, Sparkles, Mail
 } from "lucide-react";
+import { AboutTimeline } from "@/components/AboutTimeline";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -146,21 +147,8 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* About Us Header Section */}
-        <section className="py-16 bg-primary/5">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground">
-                About Us
-              </h2>
-            </motion.div>
-          </div>
-        </section>
+        {/* About Us Timeline Section */}
+        <AboutTimeline />
 
         {/* Mission Statement Section */}
         <section className="py-20 md:py-28 bg-background">
