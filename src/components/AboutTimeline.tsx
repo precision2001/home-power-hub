@@ -318,8 +318,8 @@ export const AboutTimeline = () => {
 
       {/* Timeline Section */}
       <div className="relative py-24">
-        {/* Yellow/Lime Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#E4F294] via-[#E8E85F] to-[#E8EB1E]" />
+        {/* Yellow/Orange Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#ffef62]/80 to-[#f78d00]/80" />
 
         <div className="container mx-auto px-4 relative z-10">
           {/* Section Header */}
@@ -534,8 +534,8 @@ export const AboutTimeline = () => {
 
       {/* Vertical Timeline */}
       <div className="relative py-24">
-        {/* Yellow/Lime Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#E4F294] via-[#E8E85F] to-[#E8EB1E]" />
+        {/* Yellow/Orange Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#ffef62]/80 to-[#f78d00]/80" />
 
         <div className="container mx-auto px-4 relative z-10">
           {/* Central Line */}
