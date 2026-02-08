@@ -411,7 +411,7 @@ export const AboutTimeline = () => {
             transition={{ duration: 0.5 }}
             className="max-w-5xl mx-auto"
           >
-            <div className="relative rounded-3xl overflow-hidden bg-white/5 backdrop-blur-2xl border border-white/10">
+            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#E4F294] via-[#E8E85F] to-[#E8EB1E] backdrop-blur-2xl border border-[#E8EB1E]/30">
               <div className="grid lg:grid-cols-2">
                 {/* Media Side */}
                 <div className="relative h-[350px] lg:h-[450px]">
@@ -475,7 +475,7 @@ export const AboutTimeline = () => {
                     transition={{ delay: 0.2 }}
                   >
                     {/* Subtitle */}
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#00c8e0]/10 border border-[#00c8e0]/20 text-[#00c8e0] text-xs font-medium mb-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-medium mb-4">
                       {(() => {
                         const Icon = timelineData[activeIndex].icon;
                         return <Icon className="w-3.5 h-3.5" />;
@@ -483,7 +483,7 @@ export const AboutTimeline = () => {
                       {timelineData[activeIndex].subtitle}
                     </div>
 
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-white mb-6">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-secondary mb-6">
                       {timelineData[activeIndex].title}
                     </h3>
 
@@ -497,10 +497,10 @@ export const AboutTimeline = () => {
                           transition={{ delay: 0.3 + idx * 0.1 }}
                           className="flex items-start gap-3"
                         >
-                          <div className="mt-0.5 w-5 h-5 rounded-full bg-[#00c8e0]/15 flex items-center justify-center shrink-0">
-                            <Check className="w-3 h-3 text-[#00c8e0]" />
+                          <div className="mt-0.5 w-5 h-5 rounded-full bg-secondary/15 flex items-center justify-center shrink-0">
+                            <Check className="w-3 h-3 text-secondary" />
                           </div>
-                          <span className="text-white/70 text-sm leading-relaxed">
+                          <span className="text-secondary/80 text-sm leading-relaxed">
                             {highlight}
                           </span>
                         </motion.li>
@@ -520,7 +520,7 @@ export const AboutTimeline = () => {
                           <p className={`text-2xl md:text-3xl font-bold bg-gradient-to-r ${timelineData[activeIndex].color} bg-clip-text text-transparent`}>
                             {stat.value}
                           </p>
-                          <p className="text-xs text-white/50 mt-1">{stat.label}</p>
+                          <p className="text-xs text-secondary/60 mt-1">{stat.label}</p>
                         </motion.div>
                       ))}
                     </div>
