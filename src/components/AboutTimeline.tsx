@@ -318,16 +318,11 @@ export const AboutTimeline = () => {
       {/* Timeline Section */}
       <div className="relative py-24">
         {/* Glassmorphic Background */}
-        <div className="absolute inset-0">
-          <img 
-            src={solarHero} 
-            alt="" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-secondary/85 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-secondary">
           {/* Gradient Orbs */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#00c8e0]/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#1e88e5]/10 rounded-full blur-[100px]" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#00c8e0]/15 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#1e88e5]/15 rounded-full blur-[100px]" />
+          <div className="absolute top-1/2 right-[10%] w-64 h-64 bg-violet-500/10 rounded-full blur-[100px]" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -544,13 +539,11 @@ export const AboutTimeline = () => {
       {/* Vertical Timeline */}
       <div className="relative py-24">
         {/* Glassmorphic Background */}
-        <div className="absolute inset-0">
-          <img 
-            src={portfolio2} 
-            alt="" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-secondary/90 backdrop-blur-md" />
+        <div className="absolute inset-0 bg-secondary">
+          {/* Gradient Orbs */}
+          <div className="absolute top-20 right-1/4 w-80 h-80 bg-[#00c8e0]/15 rounded-full blur-[100px]" />
+          <div className="absolute bottom-20 left-1/4 w-72 h-72 bg-[#1e88e5]/15 rounded-full blur-[100px]" />
+          <div className="absolute top-1/2 left-[10%] w-56 h-56 bg-accent/10 rounded-full blur-[80px]" />
           {/* Subtle gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00c8e0]/5 to-transparent" />
         </div>
