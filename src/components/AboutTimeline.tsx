@@ -534,20 +534,14 @@ export const AboutTimeline = () => {
 
       {/* Vertical Timeline */}
       <div className="relative py-24">
-        {/* Glassmorphic Background with Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#00bcff] to-[#5474eb]">
-          {/* Subtle overlay for depth */}
-          <div className="absolute inset-0 bg-black/20" />
-          {/* Gradient Orbs for extra glow */}
-          <div className="absolute top-20 right-1/4 w-80 h-80 bg-[#5474eb]/30 rounded-full blur-[100px]" />
-          <div className="absolute bottom-20 left-1/4 w-72 h-72 bg-[#00bcff]/25 rounded-full blur-[100px]" />
-        </div>
+        {/* Yellow/Lime Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#E4F294] via-[#E8E85F] to-[#E8EB1E]" />
 
         <div className="container mx-auto px-4 relative z-10">
           {/* Central Line */}
-          <div className="absolute left-6 md:left-1/2 top-24 bottom-20 w-px bg-white/10 md:-translate-x-1/2">
+          <div className="absolute left-6 md:left-1/2 top-24 bottom-20 w-px bg-secondary/20 md:-translate-x-1/2">
             <motion.div
-              className="w-full bg-gradient-to-b from-[#00c8e0] via-[#1e88e5] to-[#00c8e0]"
+              className="w-full bg-gradient-to-b from-secondary/60 via-secondary to-secondary/60"
               style={{ height: lineProgress }}
             />
           </div>
@@ -596,7 +590,7 @@ export const AboutTimeline = () => {
                       className="relative group"
                     >
                       {/* Glassmorphic Card */}
-                      <div className="relative rounded-3xl overflow-hidden bg-white/5 backdrop-blur-2xl border border-white/10 hover:border-white/20 transition-all duration-500">
+                      <div className="relative rounded-3xl overflow-hidden bg-white backdrop-blur-2xl border border-secondary/10 hover:border-secondary/20 transition-all duration-500 shadow-lg">
                         {/* Image */}
                         <div className="relative h-44 overflow-hidden">
                           <img
@@ -624,7 +618,7 @@ export const AboutTimeline = () => {
 
                         {/* Content */}
                         <div className={`p-6 ${isEven ? 'md:text-left' : 'md:text-left'}`}>
-                          <h4 className="text-xl font-bold text-white mb-4 group-hover:text-[#00c8e0] transition-colors">
+                          <h4 className="text-xl font-bold text-secondary mb-4 group-hover:text-[#00c8e0] transition-colors">
                             {item.title}
                           </h4>
 
@@ -632,10 +626,10 @@ export const AboutTimeline = () => {
                           <ul className="space-y-2 mb-5">
                             {item.highlights.slice(0, 2).map((highlight, idx) => (
                               <li key={idx} className="flex items-start gap-2">
-                                <div className="mt-1 w-4 h-4 rounded-full bg-[#00c8e0]/15 flex items-center justify-center shrink-0">
-                                  <Check className="w-2.5 h-2.5 text-[#00c8e0]" />
+                                <div className="mt-1 w-4 h-4 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+                                  <Check className="w-2.5 h-2.5 text-secondary" />
                                 </div>
-                                <span className="text-white/60 text-sm leading-relaxed line-clamp-1">
+                                <span className="text-secondary/70 text-sm leading-relaxed line-clamp-1">
                                   {highlight}
                                 </span>
                               </li>
@@ -643,13 +637,13 @@ export const AboutTimeline = () => {
                           </ul>
 
                           {/* Stats */}
-                          <div className="flex gap-6 pt-4 border-t border-white/10">
+                          <div className="flex gap-6 pt-4 border-t border-secondary/10">
                             {item.stats.map((stat) => (
                               <div key={stat.label}>
                                 <p className={`text-lg font-bold bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}>
                                   {stat.value}
                                 </p>
-                                <p className="text-xs text-white/40">{stat.label}</p>
+                                <p className="text-xs text-secondary/50">{stat.label}</p>
                               </div>
                             ))}
                           </div>
