@@ -130,8 +130,9 @@ const GlassCard = ({
     transition={{ duration: 0.6, delay }}
     className={`
       relative rounded-3xl overflow-hidden
-      bg-white/10 backdrop-blur-xl
-      border border-white/20
+      bg-gradient-to-br from-[#E4F294] via-[#E8E85F] to-[#E8EB1E]
+      backdrop-blur-xl
+      border border-[#E8EB1E]/30
       shadow-[0_8px_32px_rgba(0,0,0,0.12)]
       ${className}
     `}
@@ -232,31 +233,31 @@ export const AboutTimeline = () => {
             {/* Mission Card */}
             <GlassCard delay={0.3}>
               <div className="p-8">
-                <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-6">
+                <h3 className="text-2xl md:text-3xl font-heading font-bold text-secondary mb-6">
                   Our Mission
                 </h3>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
-                    <div className="mt-1 w-5 h-5 rounded-full bg-[#00c8e0]/20 flex items-center justify-center shrink-0">
-                      <Check className="w-3 h-3 text-[#00c8e0]" />
+                    <div className="mt-1 w-5 h-5 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+                      <Check className="w-3 h-3 text-secondary" />
                     </div>
-                    <span className="text-white/80 text-sm leading-relaxed">
+                    <span className="text-secondary/80 text-sm leading-relaxed">
                       Making solar energy accessible and transparent for every Australian household through AI-powered solutions.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="mt-1 w-5 h-5 rounded-full bg-[#00c8e0]/20 flex items-center justify-center shrink-0">
-                      <Check className="w-3 h-3 text-[#00c8e0]" />
+                    <div className="mt-1 w-5 h-5 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+                      <Check className="w-3 h-3 text-secondary" />
                     </div>
-                    <span className="text-white/80 text-sm leading-relaxed">
+                    <span className="text-secondary/80 text-sm leading-relaxed">
                       Connecting customers with certified installers and premium equipment.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="mt-1 w-5 h-5 rounded-full bg-[#00c8e0]/20 flex items-center justify-center shrink-0">
-                      <Check className="w-3 h-3 text-[#00c8e0]" />
+                    <div className="mt-1 w-5 h-5 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+                      <Check className="w-3 h-3 text-secondary" />
                     </div>
-                    <span className="text-white/80 text-sm leading-relaxed">
+                    <span className="text-secondary/80 text-sm leading-relaxed">
                       Delivering instant, accurate quotes with 95% roof analysis precision.
                     </span>
                   </li>
@@ -267,31 +268,31 @@ export const AboutTimeline = () => {
             {/* Why Choose Us Card */}
             <GlassCard delay={0.4}>
               <div className="p-8">
-                <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-6">
+                <h3 className="text-2xl md:text-3xl font-heading font-bold text-secondary mb-6">
                   Why Choose Us
                 </h3>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
-                    <div className="mt-1 w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
-                      <Check className="w-3 h-3 text-accent" />
+                    <div className="mt-1 w-5 h-5 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+                      <Check className="w-3 h-3 text-secondary" />
                     </div>
-                    <span className="text-white/80 text-sm leading-relaxed">
+                    <span className="text-secondary/80 text-sm leading-relaxed">
                       AI-driven platform with satellite imagery and machine learning technology.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="mt-1 w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
-                      <Check className="w-3 h-3 text-accent" />
+                    <div className="mt-1 w-5 h-5 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+                      <Check className="w-3 h-3 text-secondary" />
                     </div>
-                    <span className="text-white/80 text-sm leading-relaxed">
+                    <span className="text-secondary/80 text-sm leading-relaxed">
                       Consistent 5-star reviews and CEC-approved equipment.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="mt-1 w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
-                      <Check className="w-3 h-3 text-accent" />
+                    <div className="mt-1 w-5 h-5 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+                      <Check className="w-3 h-3 text-secondary" />
                     </div>
-                    <span className="text-white/80 text-sm leading-relaxed">
+                    <span className="text-secondary/80 text-sm leading-relaxed">
                       Transparent, no-pressure service with verified installer network.
                     </span>
                   </li>
