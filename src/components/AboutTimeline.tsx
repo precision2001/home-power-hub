@@ -316,11 +316,18 @@ export const AboutTimeline = () => {
       </div>
 
       {/* Timeline Section */}
-      <div className="relative bg-secondary py-24">
-        {/* Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#00c8e0]/5 rounded-full blur-[120px]" />
-          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#1e88e5]/5 rounded-full blur-[100px]" />
+      <div className="relative py-24">
+        {/* Glassmorphic Background */}
+        <div className="absolute inset-0">
+          <img 
+            src={solarHero} 
+            alt="" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-secondary/85 backdrop-blur-sm" />
+          {/* Gradient Orbs */}
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#00c8e0]/10 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#1e88e5]/10 rounded-full blur-[100px]" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -535,13 +542,17 @@ export const AboutTimeline = () => {
       </div>
 
       {/* Vertical Timeline */}
-      <div className="relative bg-secondary py-24">
+      <div className="relative py-24">
+        {/* Glassmorphic Background */}
         <div className="absolute inset-0">
           <img 
-            src={portfolio1} 
-            alt="Background" 
-            className="w-full h-full object-cover opacity-5"
+            src={portfolio2} 
+            alt="" 
+            className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-secondary/90 backdrop-blur-md" />
+          {/* Subtle gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00c8e0]/5 to-transparent" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
